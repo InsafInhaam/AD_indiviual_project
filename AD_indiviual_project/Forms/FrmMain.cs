@@ -17,7 +17,7 @@ namespace AD_indiviual_project.Forms
         public FrmMain()
         {
             InitializeComponent();
-
+            labelWelcome.Text = "Welcome, " + Session.Username; // Display the user's name
             // Call a method to set up the sidebar based on the user's role
             SetupSidebar();
         }
@@ -156,6 +156,11 @@ namespace AD_indiviual_project.Forms
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
         {
 
         }

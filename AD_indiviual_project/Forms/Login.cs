@@ -31,7 +31,7 @@ namespace AD_indiviual_project.Forms
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
 
-            if (IsValidUser(username, password, out string role))
+            if (IsValidUser(username, password, out string name, out string role))
             {
                 // Store user information in session
                 Session.Username = username;
@@ -47,13 +47,13 @@ namespace AD_indiviual_project.Forms
             }
 
         }
-        private bool IsValidUser(string username, string password, out string role)
+        private bool IsValidUser(string username, string password, out string name, out string role)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand("SELECT role FROM users WHERE email =" +
+                using (SqlCommand command = new SqlCommand("SELECT name, role FROM staffs WHERE username =" +
                     " @Username AND password = @Password", connection))
                 {
                     command.Parameters.AddWithValue("@Username", username);
@@ -63,6 +63,7 @@ namespace AD_indiviual_project.Forms
                     {
                         if (reader.Read())
                         {
+                            name = reader["name"].ToString();
                             role = reader["role"].ToString();
                             return true;
                         }
@@ -70,6 +71,7 @@ namespace AD_indiviual_project.Forms
                 }
             }
 
+            name = null;
             role = null;
             return false;
         }
@@ -85,6 +87,16 @@ namespace AD_indiviual_project.Forms
         }
 
         private void bunifuLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
         {
 
         }

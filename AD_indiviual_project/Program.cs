@@ -17,7 +17,7 @@ namespace AD_indiviual_project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.FrmMain());
+            Application.Run(new Forms.Splash());
 
             if (IsUserLoggedIn())
             {
@@ -34,7 +34,7 @@ namespace AD_indiviual_project
             // Add your logic here to check if the user is logged in
             // For example, you could check if the session has a valid username
             // and role stored in it.
-            return !string.IsNullOrEmpty(Session.Username);
+            return !string.IsNullOrEmpty(Session.Username) && !string.IsNullOrEmpty(Session.Role);
         }
     }
 }

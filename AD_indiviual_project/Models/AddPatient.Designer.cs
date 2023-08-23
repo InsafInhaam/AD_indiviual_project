@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPatient));
             this.AddressTextBox = new System.Windows.Forms.TextBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
@@ -52,6 +53,7 @@
             this.AllergiesTextBox = new System.Windows.Forms.RichTextBox();
             this.GenderComboBox = new System.Windows.Forms.ComboBox();
             this.BirthdatePicker = new System.Windows.Forms.DateTimePicker();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.SuspendLayout();
             // 
             // AddressTextBox
@@ -85,7 +87,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(351, 55);
+            this.label1.Location = new System.Drawing.Point(362, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(277, 38);
             this.label1.TabIndex = 8;
@@ -287,11 +289,29 @@
             this.BirthdatePicker.Size = new System.Drawing.Size(349, 22);
             this.BirthdatePicker.TabIndex = 31;
             // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(50, 50);
+            this.guna2ImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton1.Image")));
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(50, 50);
+            this.guna2ImageButton1.IndicateFocus = true;
+            this.guna2ImageButton1.Location = new System.Drawing.Point(950, 12);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(50, 50);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(64, 54);
+            this.guna2ImageButton1.TabIndex = 32;
+            this.guna2ImageButton1.UseTransparentBackground = true;
+            // 
             // AddPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1026, 743);
+            this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.BirthdatePicker);
             this.Controls.Add(this.GenderComboBox);
             this.Controls.Add(this.AllergiesTextBox);
@@ -351,5 +371,6 @@
         private System.Windows.Forms.RichTextBox AllergiesTextBox;
         private System.Windows.Forms.ComboBox GenderComboBox;
         private System.Windows.Forms.DateTimePicker BirthdatePicker;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
     }
 }
