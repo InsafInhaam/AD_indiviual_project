@@ -38,7 +38,7 @@
             this.btnAppointment = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.SidebarPanel = new System.Windows.Forms.Panel();
-            this.labelWelcome = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.welcomeLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -191,7 +191,7 @@
             // SidebarPanel
             // 
             this.SidebarPanel.BackColor = System.Drawing.Color.Teal;
-            this.SidebarPanel.Controls.Add(this.labelWelcome);
+            this.SidebarPanel.Controls.Add(this.welcomeLabel);
             this.SidebarPanel.Controls.Add(this.pictureBox6);
             this.SidebarPanel.Controls.Add(this.pictureBox5);
             this.SidebarPanel.Controls.Add(this.pictureBox4);
@@ -211,15 +211,15 @@
             this.SidebarPanel.Size = new System.Drawing.Size(220, 609);
             this.SidebarPanel.TabIndex = 7;
             // 
-            // labelWelcome
+            // welcomeLabel
             // 
-            this.labelWelcome.BackColor = System.Drawing.Color.Transparent;
-            this.labelWelcome.Location = new System.Drawing.Point(31, 499);
-            this.labelWelcome.Name = "labelWelcome";
-            this.labelWelcome.Size = new System.Drawing.Size(108, 18);
-            this.labelWelcome.TabIndex = 19;
-            this.labelWelcome.Text = "guna2HtmlLabel1";
-            this.labelWelcome.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
+            this.welcomeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.welcomeLabel.Location = new System.Drawing.Point(31, 499);
+            this.welcomeLabel.Name = "welcomeLabel";
+            this.welcomeLabel.Size = new System.Drawing.Size(108, 18);
+            this.welcomeLabel.TabIndex = 19;
+            this.welcomeLabel.Text = "guna2HtmlLabel1";
+            this.welcomeLabel.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
             // 
             // pictureBox6
             // 
@@ -356,6 +356,6 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private Guna.UI2.WinForms.Guna2HtmlLabel labelWelcome;
+        private Guna.UI2.WinForms.Guna2HtmlLabel welcomeLabel;
     }
 }

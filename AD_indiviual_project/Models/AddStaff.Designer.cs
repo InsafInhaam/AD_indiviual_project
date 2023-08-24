@@ -523,7 +523,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1013, 775);
+            this.ClientSize = new System.Drawing.Size(1020, 740);
             this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.BirthdatePicker);
             this.Controls.Add(this.HireDatePicker);

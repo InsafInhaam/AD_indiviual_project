@@ -17,7 +17,10 @@ namespace AD_indiviual_project.Forms
         public FrmMain()
         {
             InitializeComponent();
-            labelWelcome.Text = "Welcome, " + Session.Username; // Display the user's name
+
+            string loggedInUser = Session.Username;
+            welcomeLabel.Text = $"Welcome, {loggedInUser}!";
+
             // Call a method to set up the sidebar based on the user's role
             SetupSidebar();
         }

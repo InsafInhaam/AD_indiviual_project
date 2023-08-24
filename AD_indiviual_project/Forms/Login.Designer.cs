@@ -44,8 +44,8 @@
             this.PasswordTextBox = new Bunifu.UI.WinForms.BunifuTextBox();
             this.UsernameTextBox = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,7 +96,7 @@
             this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabel1.Location = new System.Drawing.Point(343, 260);
+            this.bunifuLabel1.Location = new System.Drawing.Point(340, 250);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel1.Size = new System.Drawing.Size(37, 20);
@@ -112,7 +112,7 @@
             this.bunifuLabel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel2.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabel2.Location = new System.Drawing.Point(343, 349);
+            this.bunifuLabel2.Location = new System.Drawing.Point(340, 339);
             this.bunifuLabel2.Name = "bunifuLabel2";
             this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel2.Size = new System.Drawing.Size(62, 20);
@@ -150,7 +150,7 @@
             this.PasswordTextBox.IconRight = null;
             this.PasswordTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.PasswordTextBox.Lines = new string[0];
-            this.PasswordTextBox.Location = new System.Drawing.Point(343, 375);
+            this.PasswordTextBox.Location = new System.Drawing.Point(340, 365);
             this.PasswordTextBox.MaxLength = 32767;
             this.PasswordTextBox.MinimumSize = new System.Drawing.Size(1, 1);
             this.PasswordTextBox.Modified = false;
@@ -186,7 +186,7 @@
             this.PasswordTextBox.SelectionLength = 0;
             this.PasswordTextBox.SelectionStart = 0;
             this.PasswordTextBox.ShortcutsEnabled = true;
-            this.PasswordTextBox.Size = new System.Drawing.Size(343, 43);
+            this.PasswordTextBox.Size = new System.Drawing.Size(377, 43);
             this.PasswordTextBox.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.PasswordTextBox.TabIndex = 8;
             this.PasswordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -227,7 +227,7 @@
             this.UsernameTextBox.IconRight = null;
             this.UsernameTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.UsernameTextBox.Lines = new string[0];
-            this.UsernameTextBox.Location = new System.Drawing.Point(343, 286);
+            this.UsernameTextBox.Location = new System.Drawing.Point(340, 276);
             this.UsernameTextBox.MaxLength = 32767;
             this.UsernameTextBox.MinimumSize = new System.Drawing.Size(1, 1);
             this.UsernameTextBox.Modified = false;
@@ -263,7 +263,7 @@
             this.UsernameTextBox.SelectionLength = 0;
             this.UsernameTextBox.SelectionStart = 0;
             this.UsernameTextBox.ShortcutsEnabled = true;
-            this.UsernameTextBox.Size = new System.Drawing.Size(343, 43);
+            this.UsernameTextBox.Size = new System.Drawing.Size(377, 43);
             this.UsernameTextBox.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.UsernameTextBox.TabIndex = 5;
             this.UsernameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -324,7 +324,7 @@
             this.bunifuButton1.IdleIconLeftImage = null;
             this.bunifuButton1.IdleIconRightImage = null;
             this.bunifuButton1.IndicateFocus = false;
-            this.bunifuButton1.Location = new System.Drawing.Point(440, 461);
+            this.bunifuButton1.Location = new System.Drawing.Point(451, 461);
             this.bunifuButton1.Name = "bunifuButton1";
             this.bunifuButton1.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton1.OnDisabledState.BorderRadius = 1;
@@ -367,24 +367,12 @@
             this.bunifuButton1.UseDefaultRadiusAndThickness = true;
             this.bunifuButton1.Click += new System.EventHandler(this.bunifuButton1_Click);
             // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Teal;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(273, 190);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(493, 38);
-            this.guna2HtmlLabel1.TabIndex = 9;
-            this.guna2HtmlLabel1.Text = "Amaan Aisha Management System";
-            this.guna2HtmlLabel1.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
-            // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(402, 22);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(413, 22);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(229, 156);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -392,14 +380,25 @@
             this.guna2PictureBox1.TabStop = false;
             this.guna2PictureBox1.UseTransparentBackground = true;
             // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Teal;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(327, 184);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(404, 40);
+            this.guna2HtmlLabel1.TabIndex = 11;
+            this.guna2HtmlLabel1.Text = "HealthCare Management";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.guna2PictureBox1);
+            this.ClientSize = new System.Drawing.Size(1020, 740);
             this.Controls.Add(this.guna2HtmlLabel1);
+            this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.bunifuLabel2);
             this.Controls.Add(this.bunifuLabel1);
@@ -424,7 +423,7 @@
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
         private Bunifu.UI.WinForms.BunifuTextBox UsernameTextBox;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }

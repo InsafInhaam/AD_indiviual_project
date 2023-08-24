@@ -53,13 +53,12 @@ namespace AD_indiviual_project.Models
 
                     if (rowsAffected > 0)
                     {
-                        Console.WriteLine("Patient record inserted successfully.");
-                        MessageBox.Show("Patient record inserted successfully.");
+                        MessageBox.Show("Patient details inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                     else
                     {
-                        Console.WriteLine("Failed to insert patient record.");
-                        MessageBox.Show("Failed to insert patient record.");
+                        MessageBox.Show("Failed to insert patient details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

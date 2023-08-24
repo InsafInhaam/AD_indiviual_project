@@ -20,7 +20,7 @@ namespace AD_indiviual_project.Pages
         public Patient()
         {
             InitializeComponent();
-            LoadStaffRecords();
+            LoadPatientRecords();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace AD_indiviual_project.Pages
             addpatient.Show();
         }
 
-        private void LoadStaffRecords()
+        private void LoadPatientRecords()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -105,8 +105,7 @@ namespace AD_indiviual_project.Pages
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirm Deletion",
-                                                      MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
@@ -116,7 +115,7 @@ namespace AD_indiviual_project.Pages
                     if (DeletePatient(patientId))
                     {
                         MessageBox.Show("Record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadStaffRecords();
+                        LoadPatientRecords();
                     }
                     else
                     {
@@ -132,7 +131,28 @@ namespace AD_indiviual_project.Pages
 
         private void button2_Click(object sender, EventArgs e)
         {
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-        }
+                    // Extract the patient ID from the selected row
+                    int patientId = Convert.ToInt32(selectedRow.Cells["patientid"].Value);
+
+                    // Open an update form or dialog to modify patient information
+                    // You can pass the patientId to the update form so it knows which record to update
+                    UpdatePatientForm updateForm = new UpdatePatientForm(patientId);
+                    DialogResult result = updateForm.ShowDialog();
+
+                    if (result == DialogResult.OK)
+                    {
+                        // Refresh the patient records after the update
+                        LoadPatientRecords();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a single patient record to update.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
     }
 }

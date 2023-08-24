@@ -33,7 +33,6 @@ namespace AD_indiviual_project.Forms
 
             if (IsValidUser(username, password, out string name, out string role))
             {
-                // Store user information in session
                 Session.Username = username;
                 Session.Role = role;
 
@@ -53,7 +52,7 @@ namespace AD_indiviual_project.Forms
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand("SELECT name, role FROM staffs WHERE username =" +
+                using (SqlCommand command = new SqlCommand("SELECT first_name, role FROM staffs WHERE username =" +
                     " @Username AND password = @Password", connection))
                 {
                     command.Parameters.AddWithValue("@Username", username);
@@ -63,7 +62,7 @@ namespace AD_indiviual_project.Forms
                     {
                         if (reader.Read())
                         {
-                            name = reader["name"].ToString();
+                            name = reader["first_name"].ToString();
                             role = reader["role"].ToString();
                             return true;
                         }
