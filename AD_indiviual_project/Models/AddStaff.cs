@@ -108,5 +108,10 @@ namespace AD_indiviual_project.Models
         {
 
         }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

@@ -366,6 +366,12 @@
     <Compile Include="Models\AddStaff.Designer.cs">
       <DependentUpon>AddStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\AddUsers.Designer.cs">
+      <DependentUpon>AddUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\UpdatePatientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -404,6 +410,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Models\AddStaff.resx">
       <DependentUpon>AddStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\AddUsers.resx">
+      <DependentUpon>AddUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\UpdatePatientForm.resx">
       <DependentUpon>UpdatePatientForm.cs</DependentUpon>
