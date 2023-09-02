@@ -354,6 +354,24 @@
     <Compile Include="Forms\Splash.Designer.cs">
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserLogin.Designer.cs">
+      <DependentUpon>UserLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AddDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\AddDoctor.Designer.cs">
+      <DependentUpon>AddDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AddDoctors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\AddDoctors.Designer.cs">
+      <DependentUpon>AddDoctors.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AddPatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -372,11 +390,29 @@
     <Compile Include="Models\AddUsers.Designer.cs">
       <DependentUpon>AddUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\AddAppointment.Designer.cs">
+      <DependentUpon>AddAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\UpdatePatientForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Models\UpdatePatientForm.Designer.cs">
       <DependentUpon>UpdatePatientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Appointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\Appointment.Designer.cs">
+      <DependentUpon>Appointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Doctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\Doctor.Designer.cs">
+      <DependentUpon>Doctor.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\Patient.cs">
       <SubType>Form</SubType>
@@ -389,6 +425,12 @@
     </Compile>
     <Compile Include="Pages\Staff.Designer.cs">
       <DependentUpon>Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\User.Designer.cs">
+      <DependentUpon>User.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -405,6 +447,15 @@
     <EmbeddedResource Include="Forms\Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserLogin.resx">
+      <DependentUpon>UserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\AddDoctor.resx">
+      <DependentUpon>AddDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\AddDoctors.resx">
+      <DependentUpon>AddDoctors.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Models\AddPatient.resx">
       <DependentUpon>AddPatient.cs</DependentUpon>
     </EmbeddedResource>
@@ -414,14 +465,26 @@
     <EmbeddedResource Include="Models\AddUsers.resx">
       <DependentUpon>AddUsers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Models\AddAppointment.resx">
+      <DependentUpon>AddAppointment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Models\UpdatePatientForm.resx">
       <DependentUpon>UpdatePatientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Appointment.resx">
+      <DependentUpon>Appointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Doctor.resx">
+      <DependentUpon>Doctor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Patient.resx">
       <DependentUpon>Patient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Staff.resx">
       <DependentUpon>Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\User.resx">
+      <DependentUpon>User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

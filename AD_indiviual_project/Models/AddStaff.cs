@@ -38,18 +38,15 @@ namespace AD_indiviual_project.Models
                     connection.Open();
 
                     string insertQuery = @"
-                    INSERT INTO staffs (username, password, role, first_name, last_name, gender, birthdate, email, phone, address, department, position, salary, hire_date)
-                    VALUES (@Username, @Password, @Role, @FirstName, @LastName, @Gender, @Birthdate, @Email, @Phone, @Address, @Department, @Position, @Salary, @HireDate)";
+                    INSERT INTO staffs (first_name, last_name, gender, birthdate, email, phone, address, department, position, salary, hire_date)
+                    VALUES (@FirstName, @LastName, @Gender, @Birthdate, @Email, @Phone, @Address, @Department, @Position, @Salary, @HireDate)";
 
                     using (SqlCommand command = new SqlCommand(insertQuery, connection))
                     {
-                        command.Parameters.AddWithValue("@Username", UsernameTextBox.Text);
-                        command.Parameters.AddWithValue("@Password", PasswordTextBox.Text);
-                        command.Parameters.AddWithValue("@Role", RoleComboBox.SelectedItem.ToString());
                         command.Parameters.AddWithValue("@FirstName", staffFirstnameTextBox.Text);
                         command.Parameters.AddWithValue("@LastName", staffLastnameTextBox.Text);
-                        command.Parameters.AddWithValue("@Gender", GenderComboBox.SelectedItem.ToString()); // Assuming you have a GenderComboBox
-                        command.Parameters.AddWithValue("@Birthdate", BirthdatePicker.Value); // Assuming you have a BirthdatePicker control
+                        command.Parameters.AddWithValue("@Gender", GenderComboBox.SelectedItem.ToString()); 
+                        command.Parameters.AddWithValue("@Birthdate", BirthdatePicker.Value);
                         command.Parameters.AddWithValue("@Email", EmailTextBox.Text);
                         command.Parameters.AddWithValue("@Phone", PhoneTextBox.Text);
                         command.Parameters.AddWithValue("@Address", AddressTextBox.Text);
@@ -57,7 +54,6 @@ namespace AD_indiviual_project.Models
                         command.Parameters.AddWithValue("@Position", PositionTextBox.Text);
                         command.Parameters.AddWithValue("@Salary", Convert.ToDecimal(SalaryTextBox.Text));
                         command.Parameters.AddWithValue("@HireDate", HireDatePicker.Value);
-
 
                         int rowsAffected = command.ExecuteNonQuery();
 
@@ -84,9 +80,7 @@ namespace AD_indiviual_project.Models
 
         private bool ValidateInputFields()
         {
-            return !string.IsNullOrWhiteSpace(UsernameTextBox.Text) &&
-                   !string.IsNullOrWhiteSpace(PasswordTextBox.Text) &&
-                   RoleComboBox.SelectedItem != null &&
+            return
                    !string.IsNullOrWhiteSpace(staffFirstnameTextBox.Text) &&
                    !string.IsNullOrWhiteSpace(staffLastnameTextBox.Text) &&
                    GenderComboBox.SelectedItem != null &&

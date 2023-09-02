@@ -135,8 +135,7 @@ namespace AD_indiviual_project.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             AddStaff addstaff = new AddStaff();
-            addstaff.Show();
-
+            addstaff.Show();   
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -152,9 +151,6 @@ namespace AD_indiviual_project.Forms
 
         private void btnStaff_Click(object sender, EventArgs e)
         {
-            //panelStaff.Visible = true;
-            // panelPatient.Visible = false;
-            //panelAppointment.Visible = false;
             loadform(new Staff());
         }
 
@@ -166,6 +162,40 @@ namespace AD_indiviual_project.Forms
         private void guna2HtmlLabel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click_3(object sender, EventArgs e)
+        {
+        }
+
+        private void btnStaff_Click_1(object sender, EventArgs e)
+        {
+            loadform(new Staff());
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            loadform(new User());
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnPatient_Click_1(object sender, EventArgs e)
+        {
+            loadform(new Patient());
+        }
+
+        private void btnDoctor_Click(object sender, EventArgs e)
+        {
+            loadform(new Doctor());
+        }
+
+        private void btnAppointment_Click(object sender, EventArgs e)
+        {
+            loadform(new Appointment());
         }
     }
 }

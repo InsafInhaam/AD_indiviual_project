@@ -1,46 +1,30 @@
 ﻿using System;
-using System.Text;
-using System.Windows.Forms;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web.Security;
+using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace AD_indiviual_project.Forms
 {
-    public partial class Login : Form
+    public partial class UserLogin : Form
     {
         private string connectionString = (Properties.Settings.Default.db_string);
-        public Login()
+
+        public UserLogin()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuButton1_Click(object sender, EventArgs e)
-        {
-            string username = UsernameTextBox.Text;
-            string password = PasswordTextBox.Text;
-
-            if (IsValidUser(username, password, out string name, out string role))
-            {       
-
-                Session.Username = username;
-                Session.Role = role;
-
-                FrmMain mainForm = new FrmMain();               mainForm.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Invalid username or password.");
-            }
-
-        }
-        private bool IsValidUser(string username, string password, out string name, out string role)
-        {
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {         
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -48,12 +32,16 @@ namespace AD_indiviual_project.Forms
                 string selectQuery = "SELECT * FROM users WHERE Username=@Username";
                 using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
                 {
+                    string username = UsernameTextBox.Text;
+                    string password = PasswordTextBox.Text;
+
                     cmd.Parameters.AddWithValue("@Username", username);
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         if (dr.Read())
                         {
+                            string role = dr["role"].ToString();
                             string storedHashedPassword = dr["Password"].ToString();
                             string enteredPassword = password;
 
@@ -62,6 +50,9 @@ namespace AD_indiviual_project.Forms
 
                             if (storedHashedPassword == enteredHashedPassword)
                             {
+                                Session.Username = username;
+                                Session.Role = role;
+
                                 this.Hide();
                                 FrmMain frmmain = new FrmMain();
                                 frmmain.Show();
@@ -75,13 +66,10 @@ namespace AD_indiviual_project.Forms
                         {
                             MessageBox.Show("User not found.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                    }     
+                    }
                 }
 
             }
-            name = null;
-            role = null;
-            return false;
         }
 
         //define  the hash password function 
@@ -99,35 +87,6 @@ namespace AD_indiviual_project.Forms
 
                 return builder.ToString();
             }
-        }
-        private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuTextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuLabel3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -31,5 +31,10 @@ namespace AD_indiviual_project.Forms
                 this.Hide();
             }
         }
+
+        private void Splash_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

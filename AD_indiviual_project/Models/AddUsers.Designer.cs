@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUsers));
             this.StaffID = new System.Windows.Forms.Label();
-            this.RoleComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.UsernameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.PasswordTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.roleTextBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.usernameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.passwordTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnAddPatient = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.staffIDTextBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.SuspendLayout();
             // 
             // StaffID
@@ -53,64 +53,63 @@
             this.StaffID.TabIndex = 111;
             this.StaffID.Text = "Staff ID";
             // 
-            // RoleComboBox
+            // roleTextBox
             // 
-            this.RoleComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.RoleComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.RoleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.RoleComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.RoleComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.RoleComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.RoleComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.RoleComboBox.ItemHeight = 30;
-            this.RoleComboBox.Items.AddRange(new object[] {
+            this.roleTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.roleTextBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.roleTextBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.roleTextBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.roleTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.roleTextBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.roleTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.roleTextBox.ItemHeight = 30;
+            this.roleTextBox.Items.AddRange(new object[] {
             "Admin",
-            "Staff",
-            "None"});
-            this.RoleComboBox.Location = new System.Drawing.Point(558, 254);
-            this.RoleComboBox.Name = "RoleComboBox";
-            this.RoleComboBox.Size = new System.Drawing.Size(350, 36);
-            this.RoleComboBox.TabIndex = 110;
+            "Staff"});
+            this.roleTextBox.Location = new System.Drawing.Point(558, 254);
+            this.roleTextBox.Name = "roleTextBox";
+            this.roleTextBox.Size = new System.Drawing.Size(350, 36);
+            this.roleTextBox.TabIndex = 110;
             // 
-            // UsernameTextBox
+            // usernameTextBox
             // 
-            this.UsernameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.UsernameTextBox.DefaultText = "";
-            this.UsernameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.UsernameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.UsernameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.UsernameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.UsernameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.UsernameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.UsernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.UsernameTextBox.Location = new System.Drawing.Point(105, 163);
-            this.UsernameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.UsernameTextBox.Name = "UsernameTextBox";
-            this.UsernameTextBox.PasswordChar = '\0';
-            this.UsernameTextBox.PlaceholderText = "";
-            this.UsernameTextBox.SelectedText = "";
-            this.UsernameTextBox.Size = new System.Drawing.Size(350, 40);
-            this.UsernameTextBox.TabIndex = 106;
+            this.usernameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.usernameTextBox.DefaultText = "";
+            this.usernameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.usernameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.usernameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.usernameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.usernameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.usernameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.usernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.usernameTextBox.Location = new System.Drawing.Point(105, 163);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.PasswordChar = '\0';
+            this.usernameTextBox.PlaceholderText = "";
+            this.usernameTextBox.SelectedText = "";
+            this.usernameTextBox.Size = new System.Drawing.Size(350, 40);
+            this.usernameTextBox.TabIndex = 106;
             // 
-            // PasswordTextBox
+            // passwordTextBox
             // 
-            this.PasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.PasswordTextBox.DefaultText = "";
-            this.PasswordTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.PasswordTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.PasswordTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.PasswordTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.PasswordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PasswordTextBox.Location = new System.Drawing.Point(559, 163);
-            this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.PasswordChar = '\0';
-            this.PasswordTextBox.PlaceholderText = "";
-            this.PasswordTextBox.SelectedText = "";
-            this.PasswordTextBox.Size = new System.Drawing.Size(350, 40);
-            this.PasswordTextBox.TabIndex = 103;
+            this.passwordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.passwordTextBox.DefaultText = "";
+            this.passwordTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.passwordTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.passwordTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.passwordTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.passwordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.passwordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.passwordTextBox.Location = new System.Drawing.Point(559, 163);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '\0';
+            this.passwordTextBox.PlaceholderText = "";
+            this.passwordTextBox.SelectedText = "";
+            this.passwordTextBox.Size = new System.Drawing.Size(350, 40);
+            this.passwordTextBox.TabIndex = 103;
             // 
             // label15
             // 
@@ -152,6 +151,7 @@
             this.btnAddPatient.TabIndex = 93;
             this.btnAddPatient.Text = "Add User";
             this.btnAddPatient.UseVisualStyleBackColor = false;
+            this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
             // 
             // label7
             // 
@@ -174,6 +174,21 @@
             this.label1.Text = "Add New Patients";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // staffIDTextBox
+            // 
+            this.staffIDTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.staffIDTextBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.staffIDTextBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.staffIDTextBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.staffIDTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.staffIDTextBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.staffIDTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.staffIDTextBox.ItemHeight = 30;
+            this.staffIDTextBox.Location = new System.Drawing.Point(105, 254);
+            this.staffIDTextBox.Name = "staffIDTextBox";
+            this.staffIDTextBox.Size = new System.Drawing.Size(350, 36);
+            this.staffIDTextBox.TabIndex = 116;
+            // 
             // guna2ImageButton1
             // 
             this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
@@ -192,36 +207,17 @@
             this.guna2ImageButton1.UseTransparentBackground = true;
             this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
             // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
-            "Admin",
-            "Staff",
-            "None"});
-            this.guna2ComboBox1.Location = new System.Drawing.Point(105, 254);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(350, 36);
-            this.guna2ComboBox1.TabIndex = 116;
-            // 
             // AddUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 471);
-            this.Controls.Add(this.guna2ComboBox1);
+            this.ClientSize = new System.Drawing.Size(1020, 446);
+            this.Controls.Add(this.staffIDTextBox);
             this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.StaffID);
-            this.Controls.Add(this.RoleComboBox);
-            this.Controls.Add(this.UsernameTextBox);
-            this.Controls.Add(this.PasswordTextBox);
+            this.Controls.Add(this.roleTextBox);
+            this.Controls.Add(this.usernameTextBox);
+            this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label6);
@@ -239,15 +235,15 @@
         #endregion
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
         private System.Windows.Forms.Label StaffID;
-        private Guna.UI2.WinForms.Guna2ComboBox RoleComboBox;
-        private Guna.UI2.WinForms.Guna2TextBox UsernameTextBox;
-        private Guna.UI2.WinForms.Guna2TextBox PasswordTextBox;
+        private Guna.UI2.WinForms.Guna2ComboBox roleTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox usernameTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox passwordTextBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnAddPatient;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox staffIDTextBox;
     }
 }

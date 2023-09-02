@@ -19,6 +19,7 @@ namespace AD_indiviual_project.Pages
         public Staff()
         {
             InitializeComponent();
+            LoadStaffRecords();
         }
 
         private void button6_Click(object sender, EventArgs e)
