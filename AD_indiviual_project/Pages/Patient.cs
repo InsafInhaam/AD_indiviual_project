@@ -15,11 +15,13 @@ namespace AD_indiviual_project.Pages
 {
     public partial class Patient : Form
     {
-        private string connectionString = (Properties.Settings.Default.db_string);
+        private string connectionString = Properties.Settings.Default.db_string;
+        private DataAccess dataAccess;
 
         public Patient()
         {
             InitializeComponent();
+            dataAccess = new DataAccess(connectionString);
             LoadPatientRecords();
         }
 
@@ -31,21 +33,8 @@ namespace AD_indiviual_project.Pages
 
         private void LoadPatientRecords()
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string query = "SELECT * FROM patients"; // Change this query as needed
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-                    DataTable dataTable = new DataTable();
-                    dataAdapter.Fill(dataTable);
-
-                    dataGridView1.DataSource = dataTable; // Assuming dataGridView1 is the name of your DataGridView control
-                }
-            }
+            List<PatientData> patients = dataAccess.GetPatients();
+            dataGridView1.DataSource = patients;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -57,48 +46,13 @@ namespace AD_indiviual_project.Pages
         {
             string searchText = searchTerm.Text.Trim();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string query = "SELECT * FROM patients WHERE first_name LIKE @SearchText OR gender LIKE @SearchText";
-                // You can modify the query to include additional search fields
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
-
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-                    DataTable dataTable = new DataTable();
-                    dataAdapter.Fill(dataTable);
-
-                    dataGridView1.DataSource = dataTable;
-                }
-            }
+            List<PatientData> patients = dataAccess.SearchPatients(searchText);
+            dataGridView1.DataSource = patients;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private bool DeletePatient(int patientId)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string deleteQuery = "DELETE FROM patients WHERE patientid = @PatientId";
-
-                using (SqlCommand command = new SqlCommand(deleteQuery, connection))
-                {
-                    command.Parameters.AddWithValue("@PatientId", patientId);
-
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    return rowsAffected > 0;
-                }
-            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -112,7 +66,7 @@ namespace AD_indiviual_project.Pages
                     int rowIndex = dataGridView1.SelectedRows[0].Index;
                     int patientId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["patientid"].Value);
 
-                    if (DeletePatient(patientId))
+                    if (dataAccess.DeletePatient(patientId))
                     {
                         MessageBox.Show("Record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadPatientRecords();
@@ -153,6 +107,104 @@ namespace AD_indiviual_project.Pages
                 {
                     MessageBox.Show("Please select a single patient record to update.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+        }
+    }
+
+    public class PatientData
+    {
+        public int PatientId { get; set; }
+        public string FirstName { get; set; }
+        public string Gender { get; set; }
+
+        public PatientData(int patientId, string firstName, string gender)
+        {
+            PatientId = patientId;
+            FirstName = firstName;
+            Gender = gender;
+        }
+    }
+
+    public class DataAccess
+    {
+        private string connectionString;
+
+        public DataAccess(string dbConnectionString)
+        {
+            connectionString = dbConnectionString;
+        }
+
+        public List<PatientData> GetPatients()
+        {
+            List<PatientData> patients = new List<PatientData>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT * FROM patients";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int patientId = (int)reader["patientid"];
+                            string firstName = reader["first_name"].ToString();
+                            string gender = reader["gender"].ToString();
+
+                            patients.Add(new PatientData(patientId, firstName, gender));
+                        }
+                    }
+                }
             }
+
+            return patients;
+        }
+
+        public List<PatientData> SearchPatients(string searchText)
+        {
+            List<PatientData> patients = new List<PatientData>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT * FROM patients WHERE first_name LIKE @SearchText OR gender LIKE @SearchText";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int patientId = (int)reader["patientid"];
+                            string firstName = reader["first_name"].ToString();
+                            string gender = reader["gender"].ToString();
+
+                            patients.Add(new PatientData(patientId, firstName, gender));
+                        }
+                    }
+                }
+            }
+
+            return patients;
+        }
+
+        public bool DeletePatient(int patientId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string deleteQuery = "DELETE FROM patients WHERE patientid = @PatientId";
+
+                using (SqlCommand command = new SqlCommand(deleteQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@PatientId", patientId);
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+        }
     }
 }

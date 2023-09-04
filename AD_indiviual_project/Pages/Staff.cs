@@ -51,5 +51,10 @@ namespace AD_indiviual_project.Pages
         {
 
         }
+
+        private void Staff_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -56,6 +56,16 @@ namespace AD_indiviual_project.Models
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void btnAddPatient_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     // Create a class to store doctor information along with their IDs

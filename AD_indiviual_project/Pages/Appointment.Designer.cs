@@ -120,6 +120,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Appointment";
             this.Text = "Appointment";
+            this.Load += new System.EventHandler(this.Appointment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

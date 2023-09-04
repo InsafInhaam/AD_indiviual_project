@@ -459,6 +459,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddStaff";
             this.Text = "AddStaff";
+            this.Load += new System.EventHandler(this.AddStaff_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

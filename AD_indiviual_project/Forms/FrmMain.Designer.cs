@@ -32,6 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.btnLogout = new System.Windows.Forms.Button();
             this.SidebarPanel = new System.Windows.Forms.Panel();
+            this.welcomeLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.mainpanel = new System.Windows.Forms.Panel();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.btnUsers = new Guna.UI2.WinForms.Guna2Button();
             this.btnAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.btnRooms = new Guna.UI2.WinForms.Guna2Button();
@@ -39,12 +44,10 @@
             this.btnPatient = new Guna.UI2.WinForms.Guna2Button();
             this.btnStaff = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.welcomeLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.mainpanel = new System.Windows.Forms.Panel();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.SidebarPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +55,8 @@
             // 
             this.btnLogout.BackColor = System.Drawing.Color.Red;
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(31, 538);
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Location = new System.Drawing.Point(783, 9);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(107, 39);
             this.btnLogout.TabIndex = 12;
@@ -63,6 +67,8 @@
             // SidebarPanel
             // 
             this.SidebarPanel.BackColor = System.Drawing.Color.Teal;
+            this.SidebarPanel.Controls.Add(this.guna2Button3);
+            this.SidebarPanel.Controls.Add(this.guna2Button2);
             this.SidebarPanel.Controls.Add(this.btnUsers);
             this.SidebarPanel.Controls.Add(this.btnAppointment);
             this.SidebarPanel.Controls.Add(this.btnRooms);
@@ -70,15 +76,72 @@
             this.SidebarPanel.Controls.Add(this.btnPatient);
             this.SidebarPanel.Controls.Add(this.btnStaff);
             this.SidebarPanel.Controls.Add(this.guna2Button1);
-            this.SidebarPanel.Controls.Add(this.welcomeLabel);
             this.SidebarPanel.Controls.Add(this.pictureBox1);
-            this.SidebarPanel.Controls.Add(this.btnLogout);
             this.SidebarPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.SidebarPanel.ForeColor = System.Drawing.SystemColors.Control;
             this.SidebarPanel.Location = new System.Drawing.Point(0, 0);
             this.SidebarPanel.Name = "SidebarPanel";
-            this.SidebarPanel.Size = new System.Drawing.Size(220, 609);
+            this.SidebarPanel.Size = new System.Drawing.Size(220, 653);
             this.SidebarPanel.TabIndex = 7;
+            this.SidebarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SidebarPanel_Paint);
+            // 
+            // welcomeLabel
+            // 
+            this.welcomeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.welcomeLabel.Location = new System.Drawing.Point(640, 18);
+            this.welcomeLabel.Name = "welcomeLabel";
+            this.welcomeLabel.Size = new System.Drawing.Size(108, 18);
+            this.welcomeLabel.TabIndex = 19;
+            this.welcomeLabel.Text = "guna2HtmlLabel1";
+            this.welcomeLabel.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "medicine-logo-png-1.png");
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Teal;
+            this.panel1.Controls.Add(this.welcomeLabel);
+            this.panel1.Controls.Add(this.btnLogout);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(220, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(902, 56);
+            this.panel1.TabIndex = 8;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // mainpanel
+            // 
+            this.mainpanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mainpanel.BackColor = System.Drawing.Color.Transparent;
+            this.mainpanel.Location = new System.Drawing.Point(220, 55);
+            this.mainpanel.Name = "mainpanel";
+            this.mainpanel.Size = new System.Drawing.Size(900, 560);
+            this.mainpanel.TabIndex = 9;
+            this.mainpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainpanel_Paint);
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.Animated = true;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
+            this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button2.Location = new System.Drawing.Point(0, 513);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(220, 45);
+            this.guna2Button2.TabIndex = 26;
+            this.guna2Button2.Text = "RESOURCES";
+            this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // btnUsers
             // 
@@ -92,7 +155,7 @@
             this.btnUsers.ForeColor = System.Drawing.Color.White;
             this.btnUsers.Image = ((System.Drawing.Image)(resources.GetObject("btnUsers.Image")));
             this.btnUsers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnUsers.Location = new System.Drawing.Point(0, 419);
+            this.btnUsers.Location = new System.Drawing.Point(0, 462);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Size = new System.Drawing.Size(220, 45);
             this.btnUsers.TabIndex = 25;
@@ -112,7 +175,7 @@
             this.btnAppointment.ForeColor = System.Drawing.Color.White;
             this.btnAppointment.Image = ((System.Drawing.Image)(resources.GetObject("btnAppointment.Image")));
             this.btnAppointment.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAppointment.Location = new System.Drawing.Point(0, 370);
+            this.btnAppointment.Location = new System.Drawing.Point(0, 413);
             this.btnAppointment.Name = "btnAppointment";
             this.btnAppointment.Size = new System.Drawing.Size(220, 45);
             this.btnAppointment.TabIndex = 24;
@@ -138,6 +201,7 @@
             this.btnRooms.TabIndex = 23;
             this.btnRooms.Text = "ROOMS";
             this.btnRooms.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnRooms.Click += new System.EventHandler(this.btnRooms_Click);
             // 
             // btnDoctor
             // 
@@ -218,16 +282,6 @@
             this.guna2Button1.Text = "DASHBOARD";
             this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // welcomeLabel
-            // 
-            this.welcomeLabel.BackColor = System.Drawing.Color.Transparent;
-            this.welcomeLabel.Location = new System.Drawing.Point(31, 499);
-            this.welcomeLabel.Name = "welcomeLabel";
-            this.welcomeLabel.Size = new System.Drawing.Size(108, 18);
-            this.welcomeLabel.TabIndex = 19;
-            this.welcomeLabel.Text = "guna2HtmlLabel1";
-            this.welcomeLabel.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -240,36 +294,31 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // imageList1
+            // guna2Button3
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "medicine-logo-png-1.png");
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Teal;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(220, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(902, 41);
-            this.panel1.TabIndex = 8;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // mainpanel
-            // 
-            this.mainpanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mainpanel.BackColor = System.Drawing.Color.Transparent;
-            this.mainpanel.Location = new System.Drawing.Point(220, 47);
-            this.mainpanel.Name = "mainpanel";
-            this.mainpanel.Size = new System.Drawing.Size(900, 560);
-            this.mainpanel.TabIndex = 9;
+            this.guna2Button3.Animated = true;
+            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.guna2Button3.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
+            this.guna2Button3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button3.Location = new System.Drawing.Point(0, 362);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.Size = new System.Drawing.Size(220, 45);
+            this.guna2Button3.TabIndex = 27;
+            this.guna2Button3.Text = "BOOK ROOMS";
+            this.guna2Button3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1122, 609);
+            this.ClientSize = new System.Drawing.Size(1122, 653);
             this.Controls.Add(this.mainpanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.SidebarPanel);
@@ -279,14 +328,14 @@
             this.Text = "FrmMain";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.SidebarPanel.ResumeLayout(false);
-            this.SidebarPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Bunifu.UI.WinForms.BunifuFormControlBox bunifuFormControlBox1;
         private System.Windows.Forms.Panel SidebarPanel;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.ImageList imageList1;
@@ -301,5 +350,7 @@
         private Guna.UI2.WinForms.Guna2Button btnStaff;
         private Guna.UI2.WinForms.Guna2Button btnUsers;
         private Guna.UI2.WinForms.Guna2Button btnAppointment;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }
 }

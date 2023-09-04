@@ -1,8 +1,5 @@
 ﻿using AD_indiviual_project.Forms;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AD_indiviual_project
@@ -17,7 +14,7 @@ namespace AD_indiviual_project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.Splash());
+            Application.Run(new Forms.FrmMain());
 
             if (IsUserLoggedIn())
             {
@@ -25,7 +22,7 @@ namespace AD_indiviual_project
             }
             else
             {
-                Application.Run(new Login()); // Redirect to the login form
+                Application.Run(new UserLogin()); // Redirect to the login form
             }
         }
 

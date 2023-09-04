@@ -1,13 +1,6 @@
 ﻿using AD_indiviual_project.Models;
 using AD_indiviual_project.Pages;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AD_indiviual_project.Forms
@@ -64,19 +57,6 @@ namespace AD_indiviual_project.Forms
             }
         }
 
-
-        private void bunifuButton1_Click(object sender, EventArgs e)
-        {
-            Login loginForm = new Login();
-            loginForm.Show();
-            this.Hide(); 
-        }
-
-        private void bindingNavigatorPositionItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmMain_Load(object sender, EventArgs e)
         {
             
@@ -92,11 +72,6 @@ namespace AD_indiviual_project.Forms
            
         }
 
-        private void bunifuPanel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label1_Click_1(object sender, EventArgs e)
         {
 
@@ -104,9 +79,6 @@ namespace AD_indiviual_project.Forms
 
         private void label3_Click(object sender, EventArgs e)
         {
-            // panelStaff.Visible = false;
-            // panelPatient.Visible = true;
-            //panelAppointment.Visible = false;
             loadform(new Patient());
         }
 
@@ -117,7 +89,7 @@ namespace AD_indiviual_project.Forms
             Session.Role = null;
 
             // Navigate back to the login form
-            Login loginForm = new Login();
+            UserLogin loginForm = new UserLogin();
             loginForm.Show();
             this.Close();
         }
@@ -196,6 +168,31 @@ namespace AD_indiviual_project.Forms
         private void btnAppointment_Click(object sender, EventArgs e)
         {
             loadform(new Appointment());
+        }
+
+        private void mainpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            loadform(new Resources());
+        }
+
+        private void btnRooms_Click(object sender, EventArgs e)
+        {
+            loadform(new Rooms());
+        }
+
+        private void SidebarPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            loadform(new RoomBook());
         }
     }
 }

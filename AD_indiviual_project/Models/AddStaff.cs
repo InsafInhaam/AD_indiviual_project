@@ -107,5 +107,10 @@ namespace AD_indiviual_project.Models
         {
             this.Hide();
         }
+
+        private void AddStaff_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
