@@ -333,6 +333,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\MedicationController.cs" />
+    <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -356,6 +358,12 @@
     </Compile>
     <Compile Include="Forms\UserLogin.Designer.cs">
       <DependentUpon>UserLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AddMedication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\AddMedication.Designer.cs">
+      <DependentUpon>AddMedication.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BookRoom.cs">
       <SubType>Form</SubType>
@@ -429,6 +437,12 @@
     <Compile Include="Pages\Doctor.Designer.cs">
       <DependentUpon>Doctor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Medication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\Medication.Designer.cs">
+      <DependentUpon>Medication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Patient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -480,6 +494,9 @@
     <EmbeddedResource Include="Forms\UserLogin.resx">
       <DependentUpon>UserLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Models\AddMedication.resx">
+      <DependentUpon>AddMedication.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Models\BookRoom.resx">
       <DependentUpon>BookRoom.cs</DependentUpon>
     </EmbeddedResource>
@@ -515,6 +532,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Doctor.resx">
       <DependentUpon>Doctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Medication.resx">
+      <DependentUpon>Medication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Patient.resx">
       <DependentUpon>Patient.cs</DependentUpon>

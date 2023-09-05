@@ -1,4 +1,5 @@
-﻿using AD_indiviual_project.Pages;
+﻿using AD_indiviual_project.Controller;
+using AD_indiviual_project.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,12 +17,16 @@ namespace AD_indiviual_project.Models
     {
         private string connectionString = (Properties.Settings.Default.db_string);
         private int patientId;
+        private PatientController patientManager;
+
         public UpdatePatientForm(int patientId)
         {
             InitializeComponent();
             this.patientId = patientId;
             // Load patient details using patientId
             LoadPatientDetails();
+            patientManager = new PatientController(connectionString);
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -66,10 +71,11 @@ namespace AD_indiviual_project.Models
             }
         }
 
-        private void guna2ImageButton1_Click(object sender, EventArgs e)
-        {
+         private void guna2ImageButton1_Click(object sender, EventArgs e)
+         {
             this.Hide();
-        }
+         }
+
         private bool ValidateInputFields()
         {
             if (string.IsNullOrWhiteSpace(FirstNameTextBox.Text) ||
@@ -95,41 +101,25 @@ namespace AD_indiviual_project.Models
         {
             if (ValidateInputFields())
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                try
                 {
-                    connection.Open();
-
-                    string updateQuery = @" UPDATE patients SET first_name = @FirstName, last_name = @LastName, gender = @Gender, birthdate = @Birthdate, email = @Email, phone = @Phone, address = @Address, medical_history = @MedicalHistory, allergies = @Allergies, primary_doctor = @PrimaryDoctor, insurance_provider = @InsuranceProvider WHERE patientid = @PatientId";
-
-                    using (SqlCommand command = new SqlCommand(updateQuery, connection))
+                    // Call the UpdatePatient method to update the patient record 
+                    if (patientManager.UpdatePatient(patientId, FirstNameTextBox.Text, LastNameTextBox.Text, GenderComboBox.SelectedItem.ToString(), BirthdatePicker.Value, EmailTextBox.Text,
+                    PhoneTextBox.Text, AddressTextBox.Text, MedicalHistoryTextBox.Text, AllergiesTextBox.Text,
+                    PrimaryDoctorTextBox.Text, InsuranceProviderTextBox.Text))
                     {
-                        command.Parameters.AddWithValue("@FirstName", FirstNameTextBox.Text);
-                        command.Parameters.AddWithValue("@LastName", LastNameTextBox.Text);
-                        command.Parameters.AddWithValue("@Gender", GenderComboBox.SelectedItem.ToString());
-                        command.Parameters.AddWithValue("@Birthdate", BirthdatePicker.Value);
-                        command.Parameters.AddWithValue("@Email", EmailTextBox.Text);
-                        command.Parameters.AddWithValue("@Phone", PhoneTextBox.Text);
-                        command.Parameters.AddWithValue("@Address", AddressTextBox.Text);
-                        command.Parameters.AddWithValue("@MedicalHistory", MedicalHistoryTextBox.Text);
-                        command.Parameters.AddWithValue("@Allergies", AllergiesTextBox.Text);
-                        command.Parameters.AddWithValue("@PrimaryDoctor", PrimaryDoctorTextBox.Text);
-                        command.Parameters.AddWithValue("@InsuranceProvider", InsuranceProviderTextBox.Text);
+                        MessageBox.Show("Patient Record updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        command.Parameters.AddWithValue("@PatientId", patientId);
-
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Patient details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.DialogResult = DialogResult.OK;
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Failed to update patient details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        this.Close();
                     }
+                    else
+                    {
+                        MessageBox.Show("Failed to update patient record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while updating patient record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

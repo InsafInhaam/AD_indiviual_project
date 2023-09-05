@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AD_indiviual_project.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,10 +15,12 @@ namespace AD_indiviual_project.Models
     public partial class AddPatient : Form
     {
         private string connectionString = (Properties.Settings.Default.db_string);
+        private PatientController patientManager;
 
         public AddPatient()
         {
             InitializeComponent();
+            patientManager = new PatientController(connectionString);
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -25,41 +28,48 @@ namespace AD_indiviual_project.Models
 
         }
 
+        private bool ValidateInputFields()
+        {
+            if (string.IsNullOrWhiteSpace(FirstNameTextBox.Text) ||
+                string.IsNullOrWhiteSpace(LastNameTextBox.Text) ||
+                GenderComboBox.SelectedItem == null ||
+                BirthdatePicker.Value == default ||
+                string.IsNullOrWhiteSpace(EmailTextBox.Text) ||
+                string.IsNullOrWhiteSpace(PhoneTextBox.Text) ||
+                string.IsNullOrWhiteSpace(AddressTextBox.Text) ||
+                string.IsNullOrWhiteSpace(MedicalHistoryTextBox.Text) ||
+                string.IsNullOrWhiteSpace(AllergiesTextBox.Text) ||
+                string.IsNullOrWhiteSpace(PrimaryDoctorTextBox.Text) ||
+                string.IsNullOrWhiteSpace(InsuranceProviderTextBox.Text))
+            {
+                MessageBox.Show("Please fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (ValidateInputFields())
             {
-                connection.Open();
-
-                string insertQuery = @"
-                    INSERT INTO patients (first_name, last_name, gender, birthdate, email, phone, address, medical_history, allergies, primary_doctor, insurance_provider)
-                    VALUES (@FirstName, @LastName, @Gender, @Birthdate, @Email, @Phone, @Address, @MedicalHistory, @Allergies, @PrimaryDoctor, @InsuranceProvider)";
-
-                using (SqlCommand command = new SqlCommand(insertQuery, connection))
+                try
                 {
-                    command.Parameters.AddWithValue("@FirstName", FirstNameTextBox.Text);
-                    command.Parameters.AddWithValue("@LastName", LastNameTextBox.Text);
-                    command.Parameters.AddWithValue("@Gender", GenderComboBox.SelectedItem.ToString());
-                    command.Parameters.AddWithValue("@Birthdate", BirthdatePicker.Value);
-                    command.Parameters.AddWithValue("@Email", EmailTextBox.Text);
-                    command.Parameters.AddWithValue("@Phone", PhoneTextBox.Text);
-                    command.Parameters.AddWithValue("@Address", AddressTextBox.Text);
-                    command.Parameters.AddWithValue("@MedicalHistory", MedicalHistoryTextBox.Text);
-                    command.Parameters.AddWithValue("@Allergies", AllergiesTextBox.Text);
-                    command.Parameters.AddWithValue("@PrimaryDoctor", PrimaryDoctorTextBox.Text);
-                    command.Parameters.AddWithValue("@InsuranceProvider", InsuranceProviderTextBox.Text);
-
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
+                    if (patientManager.AddPatient(FirstNameTextBox.Text, LastNameTextBox.Text, GenderComboBox.SelectedItem.ToString(), BirthdatePicker.Value, EmailTextBox.Text,
+                        PhoneTextBox.Text, AddressTextBox.Text, MedicalHistoryTextBox.Text, AllergiesTextBox.Text,
+                        PrimaryDoctorTextBox.Text, InsuranceProviderTextBox.Text))
                     {
-                        MessageBox.Show("Patient details inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Patient Record Saved Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Failed to insert patient details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error occurred while saving patient data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

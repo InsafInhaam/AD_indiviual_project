@@ -99,6 +99,7 @@
             this.doctorComboBox.Name = "doctorComboBox";
             this.doctorComboBox.Size = new System.Drawing.Size(350, 36);
             this.doctorComboBox.TabIndex = 178;
+            this.doctorComboBox.SelectedIndexChanged += new System.EventHandler(this.doctorComboBox_SelectedIndexChanged);
             // 
             // label15
             // 

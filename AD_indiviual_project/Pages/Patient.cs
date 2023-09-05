@@ -1,4 +1,5 @@
-﻿using AD_indiviual_project.Models;
+﻿using AD_indiviual_project.Controller;
+using AD_indiviual_project.Models;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -15,13 +16,13 @@ namespace AD_indiviual_project.Pages
 {
     public partial class Patient : Form
     {
-        private string connectionString = Properties.Settings.Default.db_string;
-        private DataAccess dataAccess;
+        private string connectionString = (Properties.Settings.Default.db_string);
+        private PatientController patientManager;
 
         public Patient()
         {
             InitializeComponent();
-            dataAccess = new DataAccess(connectionString);
+            patientManager = new PatientController(connectionString);
             LoadPatientRecords();
         }
 
@@ -31,10 +32,10 @@ namespace AD_indiviual_project.Pages
             addpatient.Show();
         }
 
-        private void LoadPatientRecords()
+        public void LoadPatientRecords()
         {
-            List<PatientData> patients = dataAccess.GetPatients();
-            dataGridView1.DataSource = patients;
+            DataTable dataTable = patientManager.GetPatients();
+            dataGridView1.DataSource = dataTable;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -46,8 +47,8 @@ namespace AD_indiviual_project.Pages
         {
             string searchText = searchTerm.Text.Trim();
 
-            List<PatientData> patients = dataAccess.SearchPatients(searchText);
-            dataGridView1.DataSource = patients;
+            DataTable dataTable = patientManager.SearchPatients(searchText);
+            dataGridView1.DataSource = dataTable;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -66,7 +67,7 @@ namespace AD_indiviual_project.Pages
                     int rowIndex = dataGridView1.SelectedRows[0].Index;
                     int patientId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["patientid"].Value);
 
-                    if (dataAccess.DeletePatient(patientId))
+                    if (patientManager.DeletePatient(patientId))
                     {
                         MessageBox.Show("Record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadPatientRecords();
@@ -85,125 +86,27 @@ namespace AD_indiviual_project.Pages
 
         private void button2_Click(object sender, EventArgs e)
         {
-                if (dataGridView1.SelectedRows.Count == 1)
-                {
-                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-
-                    // Extract the patient ID from the selected row
-                    int patientId = Convert.ToInt32(selectedRow.Cells["patientid"].Value);
-
-                    // Open an update form or dialog to modify patient information
-                    // You can pass the patientId to the update form so it knows which record to update
-                    UpdatePatientForm updateForm = new UpdatePatientForm(patientId);
-                    DialogResult result = updateForm.ShowDialog();
-
-                    if (result == DialogResult.OK)
-                    {
-                        // Refresh the patient records after the update
-                        LoadPatientRecords();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Please select a single patient record to update.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-        }
-    }
-
-    public class PatientData
-    {
-        public int PatientId { get; set; }
-        public string FirstName { get; set; }
-        public string Gender { get; set; }
-
-        public PatientData(int patientId, string firstName, string gender)
-        {
-            PatientId = patientId;
-            FirstName = firstName;
-            Gender = gender;
-        }
-    }
-
-    public class DataAccess
-    {
-        private string connectionString;
-
-        public DataAccess(string dbConnectionString)
-        {
-            connectionString = dbConnectionString;
-        }
-
-        public List<PatientData> GetPatients()
-        {
-            List<PatientData> patients = new List<PatientData>();
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (dataGridView1.SelectedRows.Count == 1)
             {
-                connection.Open();
-                string query = "SELECT * FROM patients";
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-                using (SqlCommand command = new SqlCommand(query, connection))
+                // Extract the patient ID from the selected row
+                int patientId = Convert.ToInt32(selectedRow.Cells["patientid"].Value);
+
+                // Open an update form or dialog to modify patient information
+                // You can pass the patientId to the update form so it knows which record to update
+                UpdatePatientForm updateForm = new UpdatePatientForm(patientId);
+                DialogResult result = updateForm.ShowDialog();
+
+                if (result == DialogResult.OK)
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            int patientId = (int)reader["patientid"];
-                            string firstName = reader["first_name"].ToString();
-                            string gender = reader["gender"].ToString();
-
-                            patients.Add(new PatientData(patientId, firstName, gender));
-                        }
-                    }
+                    // Refresh the patient records after the update
+                    LoadPatientRecords();
                 }
             }
-
-            return patients;
-        }
-
-        public List<PatientData> SearchPatients(string searchText)
-        {
-            List<PatientData> patients = new List<PatientData>();
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            else
             {
-                connection.Open();
-                string query = "SELECT * FROM patients WHERE first_name LIKE @SearchText OR gender LIKE @SearchText";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            int patientId = (int)reader["patientid"];
-                            string firstName = reader["first_name"].ToString();
-                            string gender = reader["gender"].ToString();
-
-                            patients.Add(new PatientData(patientId, firstName, gender));
-                        }
-                    }
-                }
-            }
-
-            return patients;
-        }
-
-        public bool DeletePatient(int patientId)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                string deleteQuery = "DELETE FROM patients WHERE patientid = @PatientId";
-
-                using (SqlCommand command = new SqlCommand(deleteQuery, connection))
-                {
-                    command.Parameters.AddWithValue("@PatientId", patientId);
-                    int rowsAffected = command.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
+                MessageBox.Show("Please select a single patient record to update.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

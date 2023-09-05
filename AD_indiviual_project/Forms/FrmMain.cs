@@ -194,5 +194,10 @@ namespace AD_indiviual_project.Forms
         {
             loadform(new RoomBook());
         }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            loadform(new Medication());
+        }
     }
 }

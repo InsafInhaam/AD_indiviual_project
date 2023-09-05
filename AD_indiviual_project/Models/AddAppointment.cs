@@ -66,6 +66,11 @@ namespace AD_indiviual_project.Models
         {
 
         }
+
+        private void doctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     // Create a class to store doctor information along with their IDs
