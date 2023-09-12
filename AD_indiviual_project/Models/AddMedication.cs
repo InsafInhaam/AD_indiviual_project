@@ -1,13 +1,7 @@
 ﻿using AD_indiviual_project.Controller;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AD_indiviual_project.Models
@@ -32,64 +26,23 @@ namespace AD_indiviual_project.Models
 
         private void PopulateDoctorComboBox()
         {
-            try
+            DataTable doctorsTable = medicationController.GetDoctors();
+            if (doctorsTable != null)
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    string selectDoctorsQuery = "SELECT DoctorID, FirstName, LastName FROM Doctors";
-
-                    SqlCommand command = new SqlCommand(selectDoctorsQuery, connection);
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            int doctorID = reader.GetInt32(0);
-                            string firstName = reader.GetString(1);
-                            string lastName = reader.GetString(2);
-
-                            string doctorFullName = $"{firstName} {lastName}";
-
-                            txtPrescribingDoctorId.Items.Add(new DoctorItem(doctorID, doctorFullName));
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPrescribingDoctorId.DataSource = doctorsTable;
+                txtPrescribingDoctorId.DisplayMember = "FirstName"; // Display the first name in the control
+                txtPrescribingDoctorId.ValueMember = "DoctorID";   // Save the DoctorID as the selected value
             }
         }
 
         private void LoadPatientNames()
         {
-            try
+            DataTable patientsTable = medicationController.GetPatients();
+            if (patientsTable != null)
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    // Fetch patient names and IDs from the Patients table
-                    string query = "SELECT patientid, first_name, last_name FROM patients";
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-                        DataTable dataTable = new DataTable();
-                        dataAdapter.Fill(dataTable);
-
-                        // Bind the ComboBox or DropDownList with patient names and IDs
-                        txtPatientId.DataSource = dataTable;
-                        txtPatientId.DisplayMember = "first_name"; // Display the first name in the control
-                        txtPatientId.ValueMember = "patientid";   // Save the PatientID as the selected value
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPatientId.DataSource = patientsTable;
+                txtPatientId.DisplayMember = "first_name"; // Display the first name in the control
+                txtPatientId.ValueMember = "patientid";   // Save the PatientID as the selected value
             }
         }
 
@@ -107,14 +60,14 @@ namespace AD_indiviual_project.Models
             }
 
             // Parse input values
-            int patientId = int.Parse(txtPatientId.Text);
+            int patientId = (int)txtPatientId.SelectedValue;
             string medicationName = txtMedicationName.Text;
             string dosage = txtDosage.Text;
             string frequency = txtFrequency.Text;
             DateTime startDate = startDatePicker.Value;
             DateTime? endDate = endDatePicker.Checked ? endDatePicker.Value : (DateTime?)null; // Nullable DateTime
             string instructions = txtInstructions.Text;
-            int prescribingDoctorId = int.Parse(txtPrescribingDoctorId.Text);
+            int prescribingDoctorId = (int)txtPrescribingDoctorId.SelectedValue;
             string notes = txtNotes.Text;
 
             // Insert medication record
@@ -142,11 +95,11 @@ namespace AD_indiviual_project.Models
             // You can check if required fields are not empty, validate dates, etc.
             // Return true if validation passes, false otherwise
 
-            if (string.IsNullOrWhiteSpace(txtPatientId.Text) ||
+            if (string.IsNullOrWhiteSpace(txtPatientId.SelectedValue.ToString()) ||
                 string.IsNullOrWhiteSpace(txtMedicationName.Text) ||
                 string.IsNullOrWhiteSpace(txtDosage.Text) ||
                 string.IsNullOrWhiteSpace(txtFrequency.Text) ||
-                string.IsNullOrWhiteSpace(txtPrescribingDoctorId.Text))
+                string.IsNullOrWhiteSpace(txtPrescribingDoctorId.SelectedValue.ToString()))
             {
                 MessageBox.Show("Please fill in all required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -155,6 +108,11 @@ namespace AD_indiviual_project.Models
             // You can add more validation logic as needed
 
             return true;
+        }
+
+        private void txtPatientId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -16,6 +16,7 @@ namespace AD_indiviual_project.Forms
 
             // Call a method to set up the sidebar based on the user's role
             SetupSidebar();
+            loadform(new Dashboard());
         }
 
         public void loadform(object Form)
@@ -57,26 +58,6 @@ namespace AD_indiviual_project.Forms
             }
         }
 
-        private void FrmMain_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnPatient_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void label3_Click(object sender, EventArgs e)
         {
             loadform(new Patient());
@@ -94,25 +75,10 @@ namespace AD_indiviual_project.Forms
             this.Close();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             AddStaff addstaff = new AddStaff();
             addstaff.Show();   
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -126,20 +92,6 @@ namespace AD_indiviual_project.Forms
             loadform(new Staff());
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_3(object sender, EventArgs e)
-        {
-        }
-
         private void btnStaff_Click_1(object sender, EventArgs e)
         {
             loadform(new Staff());
@@ -148,11 +100,6 @@ namespace AD_indiviual_project.Forms
         private void btnUsers_Click(object sender, EventArgs e)
         {
             loadform(new User());
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnPatient_Click_1(object sender, EventArgs e)
@@ -170,24 +117,14 @@ namespace AD_indiviual_project.Forms
             loadform(new Appointment());
         }
 
-        private void mainpanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            loadform(new Resources());
+            
         }
 
         private void btnRooms_Click(object sender, EventArgs e)
         {
             loadform(new Rooms());
-        }
-
-        private void SidebarPanel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
@@ -198,6 +135,21 @@ namespace AD_indiviual_project.Forms
         private void guna2Button4_Click(object sender, EventArgs e)
         {
             loadform(new Medication());
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            loadform(new Billing());
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            loadform(new Dashboard());
+        }
+
+        private void guna2Button6_Click(object sender, EventArgs e)
+        {
+            loadform(new Procedures());
         }
     }
 }

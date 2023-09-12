@@ -1,19 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace AD_indiviual_project.Controller
 {
-    public class PatientController
+    public class StaffController
     {
         private string connectionString;
 
-        public PatientController(string connectionString)
+        public StaffController(string connectionString)
         {
             this.connectionString = connectionString;
         }
 
-        public DataTable GetPatients()
+        public DataTable GetStaffs()
         {
             try
             {
@@ -21,7 +25,7 @@ namespace AD_indiviual_project.Controller
                 {
                     connection.Open();
 
-                    string query = "SELECT * FROM patients";
+                    string query = "SELECT * FROM staffs";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -40,17 +44,17 @@ namespace AD_indiviual_project.Controller
             }
         }
 
-        public bool DeletePatient(int patientId)
+        public bool DeleteStaff(int staffId)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                string deleteQuery = "DELETE FROM patients WHERE patientid = @PatientId";
+                string deleteQuery = "DELETE FROM staffs WHERE staffid = @StaffId";
 
                 using (SqlCommand command = new SqlCommand(deleteQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@PatientId", patientId);
+                    command.Parameters.AddWithValue("@StaffId", staffId);
 
                     int rowsAffected = command.ExecuteNonQuery();
 
@@ -59,7 +63,7 @@ namespace AD_indiviual_project.Controller
             }
         }
 
-        public DataTable SearchPatients(string searchText)
+        public DataTable SearchStaffs(string searchText)
         {
             try
             {
@@ -67,7 +71,7 @@ namespace AD_indiviual_project.Controller
                 {
                     connection.Open();
 
-                    string query = "SELECT * FROM patients WHERE first_name LIKE @SearchText OR gender LIKE @SearchText";
+                    string query = "SELECT * FROM staffs WHERE first_name LIKE @SearchText OR gender LIKE @SearchText";
                     // You can modify the query to include additional search fields
 
                     using (SqlCommand command = new SqlCommand(query, connection))
@@ -88,8 +92,8 @@ namespace AD_indiviual_project.Controller
                 return null;
             }
         }
-
-        public bool AddPatient(string firstname, string lastname, string gender, DateTime dob, string email, string phone, string address, string medicalhistory, string allergies, string primarydoctor, string insuranceprovider)
+        public bool AddStaff(string firstName, string lastName, string gender, DateTime birthdate, string email, string phone,
+       string address, string department, string position, decimal salary, DateTime hireDate)
         {
             try
             {
@@ -98,61 +102,22 @@ namespace AD_indiviual_project.Controller
                     connection.Open();
 
                     string insertQuery = @"
-                    INSERT INTO patients (first_name, last_name, gender, birthdate, email, phone, address, medical_history, allergies, primary_doctor, insurance_provider)
-                    VALUES (@FirstName, @LastName, @Gender, @Birthdate, @Email, @Phone, @Address, @MedicalHistory, @Allergies, @PrimaryDoctor, @InsuranceProvider)";
+                    INSERT INTO staffs (first_name, last_name, gender, birthdate, email, phone, address, department, position, salary, hire_date)
+                    VALUES (@FirstName, @LastName, @Gender, @Birthdate, @Email, @Phone, @Address, @Department, @Position, @Salary, @HireDate)";
 
                     using (SqlCommand command = new SqlCommand(insertQuery, connection))
                     {
-                        command.Parameters.AddWithValue("@FirstName", firstname);
-                        command.Parameters.AddWithValue("@LastName", lastname);
+                        command.Parameters.AddWithValue("@FirstName", firstName);
+                        command.Parameters.AddWithValue("@LastName", lastName);
                         command.Parameters.AddWithValue("@Gender", gender);
-                        command.Parameters.AddWithValue("@Birthdate", dob);
+                        command.Parameters.AddWithValue("@Birthdate", birthdate);
                         command.Parameters.AddWithValue("@Email", email);
                         command.Parameters.AddWithValue("@Phone", phone);
                         command.Parameters.AddWithValue("@Address", address);
-                        command.Parameters.AddWithValue("@MedicalHistory", medicalhistory);
-                        command.Parameters.AddWithValue("@Allergies", allergies);
-                        command.Parameters.AddWithValue("@PrimaryDoctor", primarydoctor);
-                        command.Parameters.AddWithValue("@InsuranceProvider", insuranceprovider);
-
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        return rowsAffected > 0;                        
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred: " + ex.Message);
-                return false; // Handle the error as needed
-            }
-        }
-
-        public bool UpdatePatient(int patientId, string firstname, string lastname, string gender, DateTime dob, string email, string phone, string address, string medicalhistory, string allergies, string primarydoctor, string insuranceprovider)
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    string updateQuery = @" UPDATE patients SET first_name = @FirstName, last_name = @LastName, gender = @Gender, birthdate = @Birthdate, email = @Email, phone = @Phone, address = @Address, medical_history = @MedicalHistory, allergies = @Allergies, primary_doctor = @PrimaryDoctor, insurance_provider = @InsuranceProvider WHERE patientid = @PatientId";
-
-                    using (SqlCommand command = new SqlCommand(updateQuery, connection))
-                    {
-                        command.Parameters.AddWithValue("@FirstName", firstname);
-                        command.Parameters.AddWithValue("@LastName", lastname);
-                        command.Parameters.AddWithValue("@Gender", gender);
-                        command.Parameters.AddWithValue("@Birthdate", dob);
-                        command.Parameters.AddWithValue("@Email", email);
-                        command.Parameters.AddWithValue("@Phone", phone);
-                        command.Parameters.AddWithValue("@Address", address);
-                        command.Parameters.AddWithValue("@MedicalHistory", medicalhistory);
-                        command.Parameters.AddWithValue("@Allergies", allergies);
-                        command.Parameters.AddWithValue("@PrimaryDoctor", primarydoctor);
-                        command.Parameters.AddWithValue("@InsuranceProvider", insuranceprovider);
-
-                        command.Parameters.AddWithValue("@PatientId", patientId);
+                        command.Parameters.AddWithValue("@Department", department);
+                        command.Parameters.AddWithValue("@Position", position);
+                        command.Parameters.AddWithValue("@Salary", salary);
+                        command.Parameters.AddWithValue("@HireDate", hireDate);
 
                         int rowsAffected = command.ExecuteNonQuery();
 
@@ -167,5 +132,63 @@ namespace AD_indiviual_project.Controller
             }
         }
 
+        public bool UpdateStaff(int staffId, string firstName, string lastName, string gender, DateTime birthdate, string email, string phone,
+       string address, string department, string position, decimal salary, DateTime hireDate)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string updateQuery = @"
+                        UPDATE staffs
+                        SET
+                            first_name = @FirstName,
+                            last_name = @LastName,
+                            gender = @Gender,
+                            birthdate = @Birthdate,
+                            email = @Email,
+                            phone = @Phone,
+                            address = @Address,
+                            department = @Department,
+                            position = @Position,
+                            salary = @Salary,
+                            hire_date = @HireDate
+                        WHERE staffid = @StaffId";
+
+                    using (SqlCommand command = new SqlCommand(updateQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@FirstName", firstName);
+                        command.Parameters.AddWithValue("@LastName", lastName);
+                        command.Parameters.AddWithValue("@Gender", gender);
+                        command.Parameters.AddWithValue("@Birthdate", birthdate);
+                        command.Parameters.AddWithValue("@Email", email);
+                        command.Parameters.AddWithValue("@Phone", phone);
+                        command.Parameters.AddWithValue("@Address", address);
+                        command.Parameters.AddWithValue("@Department", department);
+                        command.Parameters.AddWithValue("@Position", position);
+                        command.Parameters.AddWithValue("@Salary", salary);
+                        command.Parameters.AddWithValue("@HireDate", hireDate);
+
+                        command.Parameters.AddWithValue("@StaffId", staffId);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return false;
+            }
+        }
+
+        internal bool UpdateStaff(string text1, string text2, string v1, DateTime value1, string text3, string text4, string text5, string text6, string text7, decimal v2, DateTime value2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

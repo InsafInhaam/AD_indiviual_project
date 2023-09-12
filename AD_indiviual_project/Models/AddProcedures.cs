@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace AD_indiviual_project.Models
 {
-    public partial class AddResources : Form
+    public partial class AddProcedures : Form
     {
         private string connectionString = Properties.Settings.Default.db_string;
         private OpenFileDialog openFileDialog = new OpenFileDialog();
 
-        public AddResources()
+        public AddProcedures()
         {
             InitializeComponent();
             LoadPatientNames();
@@ -62,14 +62,14 @@ namespace AD_indiviual_project.Models
 
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
-            string resourceType = cmbResourceType.SelectedItem.ToString();
+            string proceduresType = cmbProceduresType.SelectedItem.ToString();
 
             // Get the selected file path (assuming it's assigned to filePath)
             string filePath = openFileDialog.FileName;
 
-            if (string.IsNullOrEmpty(resourceType) || string.IsNullOrEmpty(filePath))
+            if (string.IsNullOrEmpty(proceduresType) || string.IsNullOrEmpty(filePath))
             {
-                MessageBox.Show("Please select a resource type and upload a file.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a procedures type and upload a file.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -84,53 +84,34 @@ namespace AD_indiviual_project.Models
                 connection.Open();
 
                 string insertQuery = @"
-            INSERT INTO Resources (PatientID, ResourceType, ResourceData, UploadDate, Description)
-            VALUES (@PatientID, @ResourceType, @ResourceData, GETDATE(), @Description)";
+            INSERT INTO Procedures (PatientID, ProceduresType, ProceduresData, Description)
+            VALUES (@PatientID, @ProceduresType, @ProceduresData, @Description)";
 
                 using (SqlCommand command = new SqlCommand(insertQuery, connection))
                 {
                     command.Parameters.AddWithValue("@PatientID", selectedPatientID);
-                    command.Parameters.AddWithValue("@ResourceType", resourceType);
-                    command.Parameters.AddWithValue("@ResourceData", fileData);
+                    command.Parameters.AddWithValue("@ProceduresType", proceduresType);
+                    command.Parameters.AddWithValue("@ProceduresData", fileData);
                     command.Parameters.AddWithValue("@Description", txtDescription.Text); // Add a description field if needed
 
                     int rowsAffected = command.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Resource information saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Procedures information saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show("Failed to save resource information.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Failed to save procedures information.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
 
-
-        private void AddResources_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void patientComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            if (patientComboBox.SelectedItem != null)
-            {
-                if (int.TryParse(patientComboBox.SelectedValue.ToString(), out int selectedPatientID))
-                {
-                    // You can now safely use the selectedPatientID as an integer.
-                }
-                else
-                {
-                    // Handle the case where the conversion to int failed.
-                    // For example, display an error message or provide a default value.
-                    MessageBox.Show("Invalid selected patient ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }*/
+            
         }
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)

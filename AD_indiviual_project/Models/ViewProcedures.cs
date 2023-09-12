@@ -6,51 +6,46 @@ using System.Windows.Forms;
 
 namespace AD_indiviual_project.Models
 {
-    public partial class ViewResources : Form
+    public partial class ViewProcedures : Form
     {
         private string connectionString = Properties.Settings.Default.db_string;
-        private int ResourceID;
+        private int ProceduresID;
 
-        public ViewResources(int ResourceID)
+        public ViewProcedures(int ProceduresID)
         {
             InitializeComponent();
-            this.ResourceID = ResourceID;
-            LoadResourceDetails();
+            this.ProceduresID = ProceduresID;
+            LoadProceduresDetails();
         }
 
-        private void ViewResources_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LoadResourceDetails()
+        private void LoadProceduresDetails()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                string query = "SELECT ResourceType, ResourceData, Description, PatientID FROM Resources WHERE ResourceID = @ResourceID";
+                string query = "SELECT ProceduresType, ProceduresData, Description, PatientID FROM Procedures WHERE ProcedureID = @ProceduresID";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@ResourceID", ResourceID);
+                    command.Parameters.AddWithValue("@ProceduresID", ProceduresID);
 
                     SqlDataReader reader = command.ExecuteReader();
 
                     if (reader.Read())
                     {
-                        // Populate the controls with resource details
-                        string resourceType = reader["ResourceType"].ToString();
+                        // Populate the controls with procedures details
+                        string proceduresType = reader["ProceduresType"].ToString();
                         string description = reader["Description"].ToString();
                         string PatientID = reader["PatientID"].ToString();
 
-                        // Display the resource type and description in appropriate labels or textboxes
-                        lblResourceType.Text = resourceType;
+                        // Display the procedures type and description in appropriate labels or textboxes
+                        lblProceduresType.Text = proceduresType;
                         lblDescription.Text =  description;
                         lblPatientID.Text =  PatientID;
 
                         // Assuming the file content is stored in a byte array in the database
-                        byte[] fileData = (byte[])reader["ResourceData"];
+                        byte[] fileData = (byte[])reader["ProceduresData"];
 
                         // Create a MemoryStream from the byte array
                         using (MemoryStream ms = new MemoryStream(fileData))
@@ -64,7 +59,7 @@ namespace AD_indiviual_project.Models
                     }
                     else
                     {
-                        MessageBox.Show("Resource not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Procedures not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         this.Close();
                     }
                 }

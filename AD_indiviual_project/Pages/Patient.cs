@@ -95,7 +95,7 @@ namespace AD_indiviual_project.Pages
 
                 // Open an update form or dialog to modify patient information
                 // You can pass the patientId to the update form so it knows which record to update
-                UpdatePatientForm updateForm = new UpdatePatientForm(patientId);
+                UpdatePatient updateForm = new UpdatePatient(patientId);
                 DialogResult result = updateForm.ShowDialog();
 
                 if (result == DialogResult.OK)

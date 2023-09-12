@@ -1,59 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using AD_indiviual_project.Controller;
+using System;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AD_indiviual_project.Models
 {
     public partial class AddAppointment : Form
     {
-        private string connectionString = Properties.Settings.Default.db_string;
+        private string connectionString = (Properties.Settings.Default.db_string);
+        private AppointmentController appointmentController;
 
         public AddAppointment()
         {
             InitializeComponent();
+            appointmentController = new AppointmentController(connectionString);
+            //PopulateDoctorComboBox();
+            LoadPatientNames();
         }
 
         private void AddAppointment_Load(object sender, EventArgs e)
         {
-            PopulateDoctorComboBox();
+            // Populate the specialization ComboBox with your specialization options.
+            specializationComboBox.Items.AddRange(new string[] { "Cardiology", "Dermatology", "Endocrinology", "Gastroenterology", "Hematology", "Pediatrics", "General" });
+            // Set the default selection to the first item.
+            specializationComboBox.SelectedIndex = 0;
+            PopulateDoctorComboBox(specializationComboBox.SelectedItem.ToString());
         }
-        private void PopulateDoctorComboBox()
+
+        private void PopulateDoctorComboBox(string specialization)
         {
-            try
+            DataTable doctorsTable = appointmentController.GetDoctors(specialization);
+            if (doctorsTable != null)
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    string selectDoctorsQuery = "SELECT DoctorID, FirstName, LastName FROM Doctors";
-
-                    SqlCommand command = new SqlCommand(selectDoctorsQuery, connection);
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            int doctorID = reader.GetInt32(0);
-                            string firstName = reader.GetString(1);
-                            string lastName = reader.GetString(2);
-
-                            string doctorFullName = $"{firstName} {lastName}";
-
-                            doctorComboBox.Items.Add(new DoctorItem(doctorID, doctorFullName));
-                        }
-                    }
-                }
+                doctorComboBox.DataSource = doctorsTable;
+                doctorComboBox.DisplayMember = "FirstName"; // Display the first name in the control
+                doctorComboBox.ValueMember = "DoctorID";   // Save the DoctorID as the selected value
             }
-            catch (Exception ex)
+        }
+
+        private void LoadPatientNames()
+        {
+            DataTable patientsTable = appointmentController.GetPatients();
+            if (patientsTable != null)
             {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPatientId.DataSource = patientsTable;
+                txtPatientId.DisplayMember = "first_name"; // Display the first name in the control
+                txtPatientId.ValueMember = "patientid";   // Save the PatientID as the selected value
             }
         }
 
@@ -62,32 +54,90 @@ namespace AD_indiviual_project.Models
             this.Hide();
         }
 
+        private bool ValidateInputFields()
+        {
+            // Validate input fields for the appointment
+            if (txtPatientId.SelectedValue == null ||
+                doctorComboBox.SelectedValue == null ||
+                doctorAppointmentTime.SelectedItem == null ||
+                yourDateTimePicker.Value == null || // Replace with your DateTimePicker control
+                string.IsNullOrWhiteSpace(txtDescription.Text))
+            {
+                MessageBox.Show("Please fill in all required fields for the appointment.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // You can add more validation logic as needed
+
+            return true;
+        }
+
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
+            // Validate input fields
+            if (!ValidateInputFields())
+            {
+                return;
+            }
 
+            // Get selected values from the ComboBoxes and textboxes
+            int patientID = (int)txtPatientId.SelectedValue;
+            int doctorID = (int)doctorComboBox.SelectedValue;
+            DateTime appointmentDate = yourDateTimePicker.Value; // Replace with your DateTimePicker control
+            string appointmentTime = doctorAppointmentTime.SelectedItem.ToString(); // Get the selected appointment time
+            string description = txtDescription.Text; // Replace with your description textbox
+
+            // Add the appointment using the controller
+            bool appointmentAdded = appointmentController.AddAppointment(patientID, doctorID, appointmentDate, appointmentTime, description);
+
+            if (appointmentAdded)
+            {
+                MessageBox.Show("Appointment added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Clear or reset your form as needed
+            }
+            else
+            {
+                MessageBox.Show("Failed to add appointment. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void doctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-    }
-
-    // Create a class to store doctor information along with their IDs
-    public class DoctorItem
-    {
-        public int DoctorID { get; set; }
-        public string DoctorFullName { get; set; }
-
-        public DoctorItem(int id, string fullName)
-        {
-            DoctorID = id;
-            DoctorFullName = fullName;
+            if (doctorComboBox.SelectedItem != null)
+            {
+                int selectedDoctorID = (int)doctorComboBox.SelectedValue;
+                PopulateAppointmentTimeComboBox(selectedDoctorID);
+            }
         }
 
-        public override string ToString()
+        private void PopulateAppointmentTimeComboBox(int doctorID)
         {
-            return DoctorFullName;
+            DataTable appointmentTimesTable = appointmentController.GetAppointmentTimes(doctorID);
+            if (appointmentTimesTable != null)
+            {
+                doctorAppointmentTime.DataSource = appointmentTimesTable;
+                doctorAppointmentTime.DisplayMember = "AvailableTime";
+                doctorAppointmentTime.ValueMember = "AvailableTime"; // You can change this if needed
+            }
+        }
+
+        private void guna2ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Handle the specialization ComboBox's SelectedIndexChanged event.
+            string selectedSpecialization = specializationComboBox.SelectedItem.ToString();
+
+            // Populate the doctor ComboBox based on the selected specialization.
+            PopulateDoctorComboBox(selectedSpecialization);
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void appointmentTime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

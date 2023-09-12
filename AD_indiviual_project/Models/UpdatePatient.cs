@@ -13,13 +13,13 @@ using System.Windows.Forms;
 
 namespace AD_indiviual_project.Models
 {
-    public partial class UpdatePatientForm : Form
+    public partial class UpdatePatient : Form
     {
         private string connectionString = (Properties.Settings.Default.db_string);
         private int patientId;
         private PatientController patientManager;
 
-        public UpdatePatientForm(int patientId)
+        public UpdatePatient(int patientId)
         {
             InitializeComponent();
             this.patientId = patientId;

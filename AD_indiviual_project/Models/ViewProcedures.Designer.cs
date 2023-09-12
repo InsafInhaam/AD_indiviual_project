@@ -1,6 +1,6 @@
 ﻿namespace AD_indiviual_project.Models
 {
-    partial class ViewResources
+    partial class ViewProcedures
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewResources));
-            this.lblResourceType = new Guna.UI2.WinForms.Guna2TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewProcedures));
+            this.lblProceduresType = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblDescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,25 +41,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblResourceType
+            // lblProceduresType
             // 
-            this.lblResourceType.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblResourceType.DefaultText = "";
-            this.lblResourceType.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.lblResourceType.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.lblResourceType.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.lblResourceType.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.lblResourceType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.lblResourceType.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblResourceType.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.lblResourceType.Location = new System.Drawing.Point(78, 150);
-            this.lblResourceType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.lblResourceType.Name = "lblResourceType";
-            this.lblResourceType.PasswordChar = '\0';
-            this.lblResourceType.PlaceholderText = "";
-            this.lblResourceType.SelectedText = "";
-            this.lblResourceType.Size = new System.Drawing.Size(304, 48);
-            this.lblResourceType.TabIndex = 0;
+            this.lblProceduresType.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lblProceduresType.DefaultText = "";
+            this.lblProceduresType.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.lblProceduresType.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.lblProceduresType.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.lblProceduresType.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.lblProceduresType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.lblProceduresType.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblProceduresType.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.lblProceduresType.Location = new System.Drawing.Point(78, 150);
+            this.lblProceduresType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lblProceduresType.Name = "lblProceduresType";
+            this.lblProceduresType.PasswordChar = '\0';
+            this.lblProceduresType.PlaceholderText = "";
+            this.lblProceduresType.SelectedText = "";
+            this.lblProceduresType.Size = new System.Drawing.Size(304, 48);
+            this.lblProceduresType.TabIndex = 0;
             // 
             // lblDescription
             // 
@@ -96,9 +96,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(74, 126);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 20);
+            this.label2.Size = new System.Drawing.Size(136, 20);
             this.label2.TabIndex = 169;
-            this.label2.Text = "Resource Type";
+            this.label2.Text = "Procedures Type";
             // 
             // label1
             // 
@@ -106,9 +106,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(74, 236);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 20);
+            this.label1.Size = new System.Drawing.Size(135, 20);
             this.label1.TabIndex = 206;
-            this.label1.Text = "Resource Note";
+            this.label1.Text = "Procedures Note";
             // 
             // label3
             // 
@@ -146,9 +146,9 @@
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(368, 37);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(347, 38);
+            this.label15.Size = new System.Drawing.Size(374, 38);
             this.label15.TabIndex = 209;
-            this.label15.Text = "View Resource Details";
+            this.label15.Text = "View Procedures Details";
             this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // guna2ImageButton1
@@ -169,7 +169,7 @@
             this.guna2ImageButton1.UseTransparentBackground = true;
             this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
             // 
-            // ViewResources
+            // ViewProcedures
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -182,11 +182,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.lblDescription);
-            this.Controls.Add(this.lblResourceType);
+            this.Controls.Add(this.lblProceduresType);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ViewResources";
+            this.Name = "ViewProcedures";
             this.Text = "ViewResources";
-            this.Load += new System.EventHandler(this.ViewResources_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -195,7 +194,7 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2TextBox lblResourceType;
+        private Guna.UI2.WinForms.Guna2TextBox lblProceduresType;
         private Guna.UI2.WinForms.Guna2TextBox lblDescription;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label label2;

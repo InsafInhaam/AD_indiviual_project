@@ -18,13 +18,13 @@ namespace AD_indiviual_project.Models
             string roomTheaterNumber = roomTheaterNo.Text;
             string type = roomtype.SelectedItem.ToString();
             string status = "Available";
-            string scheduledProcedures = ScheduledProcedures.Text;
+            string roomNote = roomNotes.Text;
 
-            AddRoomTheaterAvailability(roomTheaterNumber, type, status, scheduledProcedures);
+            AddRoomTheaterAvailability(roomTheaterNumber, type, status, roomNote);
         }
 
 
-        private void AddRoomTheaterAvailability(string roomTheaterNumber, string type, string status, string scheduledProcedures)
+        private void AddRoomTheaterAvailability(string roomTheaterNumber, string type, string status, string roomNote)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -32,14 +32,14 @@ namespace AD_indiviual_project.Models
 
                 string insertQuery = @"
             INSERT INTO RoomTheaterAvailability (room_theater_number, type, status, scheduled_procedures)
-            VALUES (@RoomTheaterNumber, @Type, @Status, @ScheduledProcedures)";
+            VALUES (@RoomTheaterNumber, @Type, @Status, @roomNote)";
 
                 using (SqlCommand command = new SqlCommand(insertQuery, connection))
                 {
                     command.Parameters.AddWithValue("@RoomTheaterNumber", roomTheaterNumber);
                     command.Parameters.AddWithValue("@Type", type);
                     command.Parameters.AddWithValue("@Status", status);
-                    command.Parameters.AddWithValue("@ScheduledProcedures", scheduledProcedures);
+                    command.Parameters.AddWithValue("@roomNote", roomNote);
 
                     int rowsAffected = command.ExecuteNonQuery();
 
@@ -53,16 +53,6 @@ namespace AD_indiviual_project.Models
                     }
                 }
             }
-        }
-
-        private void AddRooms_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void roomtype_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)

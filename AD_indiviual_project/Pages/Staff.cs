@@ -1,4 +1,5 @@
-﻿using AD_indiviual_project.Models;
+﻿using AD_indiviual_project.Controller;
+using AD_indiviual_project.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +16,12 @@ namespace AD_indiviual_project.Pages
     public partial class Staff : Form
     {
         private string connectionString = (Properties.Settings.Default.db_string);
+        private StaffController staffManager;
 
         public Staff()
         {
             InitializeComponent();
+            staffManager = new StaffController(connectionString);
             LoadStaffRecords();
         }
 
@@ -30,21 +33,8 @@ namespace AD_indiviual_project.Pages
 
         private void LoadStaffRecords()
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string query = "SELECT * FROM staffs"; // Change this query as needed
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-                    DataTable dataTable = new DataTable();
-                    dataAdapter.Fill(dataTable);
-
-                    dataGridView1.DataSource = dataTable; // Assuming dataGridView1 is the name of your DataGridView control
-                }
-            }
+            DataTable dataTable = staffManager.GetStaffs();
+            dataGridView1.DataSource = dataTable;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -55,6 +45,73 @@ namespace AD_indiviual_project.Pages
         private void Staff_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+
+                // Extract the staff ID from the selected row
+                int staffId = Convert.ToInt32(selectedRow.Cells["staffid"].Value);
+
+                // Open an update form or dialog to modify staff information
+                // You can pass the staffId to the update form so it knows which record to update
+                UpdateStaff updateForm = new UpdateStaff(staffId);
+                DialogResult result = updateForm.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    // Refresh the staff records after the update
+                    LoadStaffRecords();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a single staff record to update.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchTerm_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = searchTerm.Text.Trim();
+
+            DataTable dataTable = staffManager.SearchStaffs(searchText);
+            dataGridView1.DataSource = dataTable;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    int rowIndex = dataGridView1.SelectedRows[0].Index;
+                    int staffId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["staffid"].Value);
+
+                    if (staffManager.DeleteStaff(staffId))
+                    {
+                        MessageBox.Show("Record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadStaffRecords();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

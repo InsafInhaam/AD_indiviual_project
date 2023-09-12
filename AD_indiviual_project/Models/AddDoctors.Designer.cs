@@ -416,7 +416,7 @@
             this.btnAddPatient.Name = "btnAddPatient";
             this.btnAddPatient.Size = new System.Drawing.Size(134, 50);
             this.btnAddPatient.TabIndex = 155;
-            this.btnAddPatient.Text = "Add Staff";
+            this.btnAddPatient.Text = "ADD";
             this.btnAddPatient.UseVisualStyleBackColor = false;
             this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
             // 
@@ -561,17 +561,11 @@
             this.specializationTextBox.ItemHeight = 30;
             this.specializationTextBox.Items.AddRange(new object[] {
             "Cardiology",
-            "",
             "Dermatology",
-            "",
             "Endocrinology",
-            "",
             "Gastroenterology",
-            "",
             "Hematology",
-            "",
             "Pediatrics",
-            "",
             "Genaral"});
             this.specializationTextBox.Location = new System.Drawing.Point(27, 369);
             this.specializationTextBox.Name = "specializationTextBox";
@@ -649,7 +643,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "AddDoctors";
             this.Text = "AddDoctors";
             this.Load += new System.EventHandler(this.AddDoctors_Load);

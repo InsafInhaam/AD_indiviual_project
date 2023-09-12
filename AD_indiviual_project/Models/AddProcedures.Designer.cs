@@ -1,6 +1,6 @@
 ﻿namespace AD_indiviual_project.Models
 {
-    partial class AddResources
+    partial class AddProcedures
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddResources));
-            this.cmbResourceType = new Guna.UI2.WinForms.Guna2ComboBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddProcedures));
+            this.cmbProceduresType = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnAddResource = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -44,17 +44,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // cmbResourceType
+            // cmbProceduresType
             // 
-            this.cmbResourceType.BackColor = System.Drawing.Color.Transparent;
-            this.cmbResourceType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbResourceType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbResourceType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbResourceType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbResourceType.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbResourceType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbResourceType.ItemHeight = 30;
-            this.cmbResourceType.Items.AddRange(new object[] {
+            this.cmbProceduresType.BackColor = System.Drawing.Color.Transparent;
+            this.cmbProceduresType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbProceduresType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProceduresType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbProceduresType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbProceduresType.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbProceduresType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbProceduresType.ItemHeight = 30;
+            this.cmbProceduresType.Items.AddRange(new object[] {
             "X-ray",
             "MRI Scan",
             "CT Scan",
@@ -75,10 +75,10 @@
             "Referral Letter",
             "Health Insurance Documents",
             "Patient ID Card"});
-            this.cmbResourceType.Location = new System.Drawing.Point(42, 146);
-            this.cmbResourceType.Name = "cmbResourceType";
-            this.cmbResourceType.Size = new System.Drawing.Size(350, 36);
-            this.cmbResourceType.TabIndex = 201;
+            this.cmbProceduresType.Location = new System.Drawing.Point(42, 146);
+            this.cmbProceduresType.Name = "cmbProceduresType";
+            this.cmbProceduresType.Size = new System.Drawing.Size(350, 36);
+            this.cmbProceduresType.TabIndex = 201;
             // 
             // btnAddResource
             // 
@@ -107,9 +107,9 @@
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(380, 23);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(300, 38);
+            this.label15.Size = new System.Drawing.Size(327, 38);
             this.label15.TabIndex = 175;
-            this.label15.Text = "Add New Resource";
+            this.label15.Text = "Add New Procedures";
             this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label3
@@ -128,9 +128,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(38, 121);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 20);
+            this.label2.Size = new System.Drawing.Size(136, 20);
             this.label2.TabIndex = 168;
-            this.label2.Text = "Resource Type";
+            this.label2.Text = "Procedures Type";
             // 
             // patientComboBox
             // 
@@ -198,9 +198,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(38, 199);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 20);
+            this.label1.Size = new System.Drawing.Size(135, 20);
             this.label1.TabIndex = 205;
-            this.label1.Text = "Resource Note";
+            this.label1.Text = "Procedures Note";
             // 
             // guna2ImageButton1
             // 
@@ -220,7 +220,7 @@
             this.guna2ImageButton1.UseTransparentBackground = true;
             this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
             // 
-            // AddResources
+            // AddProcedures
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -230,7 +230,7 @@
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnFIleUpload);
-            this.Controls.Add(this.cmbResourceType);
+            this.Controls.Add(this.cmbProceduresType);
             this.Controls.Add(this.btnAddResource);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.patientComboBox);
@@ -238,9 +238,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AddResources";
+            this.Name = "AddProcedures";
             this.Text = "AddResources";
-            this.Load += new System.EventHandler(this.AddResources_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -248,7 +247,7 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2ComboBox cmbResourceType;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbProceduresType;
         private System.Windows.Forms.Button btnAddResource;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;

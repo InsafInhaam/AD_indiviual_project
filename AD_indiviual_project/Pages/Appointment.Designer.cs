@@ -56,6 +56,7 @@
             this.searchTerm.SelectedText = "";
             this.searchTerm.Size = new System.Drawing.Size(314, 38);
             this.searchTerm.TabIndex = 23;
+            this.searchTerm.TextChanged += new System.EventHandler(this.searchTerm_TextChanged);
             // 
             // label2
             // 
@@ -86,6 +87,7 @@
             this.btnDelete.TabIndex = 21;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // button1
             // 
@@ -105,6 +107,7 @@
             this.button2.TabIndex = 20;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Appointment
             // 
