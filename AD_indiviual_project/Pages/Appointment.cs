@@ -23,6 +23,7 @@ namespace AD_indiviual_project.Pages
             AddAppointment addappointment = new AddAppointment();
             addappointment.Show();
         }
+
         public void LoadAppointmentRecords()
         {
             DataTable dataTable = appointmentManager.GetAppointments();

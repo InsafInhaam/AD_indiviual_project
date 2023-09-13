@@ -56,6 +56,7 @@
             this.searchTerm.SelectedText = "";
             this.searchTerm.Size = new System.Drawing.Size(314, 38);
             this.searchTerm.TabIndex = 29;
+            this.searchTerm.TextChanged += new System.EventHandler(this.searchTerm_TextChanged);
             // 
             // label2
             // 
@@ -120,6 +121,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RoomBook";
             this.Text = "RoomBook";
+            this.Load += new System.EventHandler(this.RoomBook_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

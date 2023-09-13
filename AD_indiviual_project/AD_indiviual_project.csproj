@@ -335,10 +335,13 @@
   <ItemGroup>
     <Compile Include="Controller\AppointmentController.cs" />
     <Compile Include="Controller\BillingController.cs" />
+    <Compile Include="Controller\BookRoomController.cs" />
     <Compile Include="Controller\DashboardController.cs" />
     <Compile Include="Controller\DoctorController.cs" />
     <Compile Include="Controller\MedicationController.cs" />
     <Compile Include="Controller\PatientController.cs" />
+    <Compile Include="Controller\ResourceController.cs" />
+    <Compile Include="Controller\RoomController.cs" />
     <Compile Include="Controller\StaffController.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -448,11 +451,23 @@
     <Compile Include="Models\UpdatePatient.Designer.cs">
       <DependentUpon>UpdatePatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\UpdateRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\UpdateRoom.Designer.cs">
+      <DependentUpon>UpdateRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\UpdateStaff.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Models\UpdateStaff.Designer.cs">
       <DependentUpon>UpdateStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\ViewPatient.Designer.cs">
+      <DependentUpon>ViewPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewProcedures.cs">
       <SubType>Form</SubType>
@@ -495,6 +510,12 @@
     </Compile>
     <Compile Include="Pages\Procedures.Designer.cs">
       <DependentUpon>Procedures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Resources.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\Resources.Designer.cs">
+      <DependentUpon>Resources.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\RoomBook.cs">
       <SubType>Form</SubType>
@@ -577,8 +598,14 @@
     <EmbeddedResource Include="Models\UpdatePatient.resx">
       <DependentUpon>UpdatePatient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Models\UpdateRoom.resx">
+      <DependentUpon>UpdateRoom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Models\UpdateStaff.resx">
       <DependentUpon>UpdateStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\ViewPatient.resx">
+      <DependentUpon>ViewPatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\ViewProcedures.resx">
       <DependentUpon>ViewProcedures.cs</DependentUpon>
@@ -600,6 +627,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Procedures.resx">
       <DependentUpon>Procedures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Resources.resx">
+      <DependentUpon>Resources.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\RoomBook.resx">
       <DependentUpon>RoomBook.cs</DependentUpon>

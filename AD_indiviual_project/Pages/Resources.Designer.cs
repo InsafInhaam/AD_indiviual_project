@@ -1,6 +1,6 @@
 ﻿namespace AD_indiviual_project.Pages
 {
-    partial class Rooms
+    partial class Resources
     {
         /// <summary>
         /// Required designer variable.
@@ -48,68 +48,64 @@
             this.searchTerm.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.searchTerm.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.searchTerm.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.searchTerm.Location = new System.Drawing.Point(25, 75);
+            this.searchTerm.Location = new System.Drawing.Point(28, 76);
             this.searchTerm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchTerm.Name = "searchTerm";
             this.searchTerm.PasswordChar = '\0';
             this.searchTerm.PlaceholderText = "";
             this.searchTerm.SelectedText = "";
             this.searchTerm.Size = new System.Drawing.Size(314, 38);
-            this.searchTerm.TabIndex = 23;
-            this.searchTerm.TextChanged += new System.EventHandler(this.searchTerm_TextChanged);
+            this.searchTerm.TabIndex = 35;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(18, 22);
+            this.label2.Location = new System.Drawing.Point(21, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 38);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Rooms";
+            this.label2.Size = new System.Drawing.Size(175, 38);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Resources";
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Desktop;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(25, 139);
+            this.dataGridView1.Location = new System.Drawing.Point(28, 140);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(851, 397);
-            this.dataGridView1.TabIndex = 18;
+            this.dataGridView1.TabIndex = 30;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(742, 75);
+            this.btnDelete.Location = new System.Drawing.Point(745, 76);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(132, 40);
-            this.btnDelete.TabIndex = 21;
+            this.btnDelete.TabIndex = 33;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(466, 73);
+            this.button1.Location = new System.Drawing.Point(469, 74);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 40);
-            this.button1.TabIndex = 19;
+            this.button1.TabIndex = 31;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(604, 75);
+            this.button2.Location = new System.Drawing.Point(607, 76);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(132, 40);
-            this.button2.TabIndex = 20;
+            this.button2.TabIndex = 32;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Rooms
+            // Resources
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -121,8 +117,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Rooms";
-            this.Text = "Rooms";
+            this.Name = "Resources";
+            this.Text = "Resources";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

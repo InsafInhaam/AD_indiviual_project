@@ -1,6 +1,7 @@
 ﻿using AD_indiviual_project.Controller;
 using AD_indiviual_project.Models;
 using Guna.UI2.WinForms;
+using ServiceStack.OrmLite.Oracle;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -97,6 +98,32 @@ namespace AD_indiviual_project.Pages
                 // You can pass the patientId to the update form so it knows which record to update
                 UpdatePatient updateForm = new UpdatePatient(patientId);
                 DialogResult result = updateForm.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    // Refresh the patient records after the update
+                    LoadPatientRecords();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a single patient record to update.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+
+                // Extract the patient ID from the selected row
+                int patientId = Convert.ToInt32(selectedRow.Cells["patientid"].Value);
+
+                // Create a new instance of the ViewProcedures form
+                ViewPatient viewPatient = new ViewPatient(patientId);
+
+                DialogResult result = viewPatient.ShowDialog();
 
                 if (result == DialogResult.OK)
                 {

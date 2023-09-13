@@ -119,7 +119,7 @@ namespace AD_indiviual_project.Forms
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            
+            loadform(new Resources());
         }
 
         private void btnRooms_Click(object sender, EventArgs e)
