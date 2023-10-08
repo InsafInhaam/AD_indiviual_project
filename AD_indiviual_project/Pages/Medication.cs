@@ -86,17 +86,13 @@ namespace AD_indiviual_project.Pages
             {
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-                // Extract the patient ID from the selected row
                 int MedicationId = Convert.ToInt32(selectedRow.Cells["MedicationId"].Value);
 
-                // Open an update form or dialog to modify patient information
-                // You can pass the patientId to the update form so it knows which record to update
                 UpdateMedication updateForm = new UpdateMedication(MedicationId);
                 DialogResult result = updateForm.ShowDialog();
 
                 if (result == DialogResult.OK)
                 {
-                    // Refresh the patient records after the update
                     LoadMedicationRecords();
                 }
             }
@@ -112,6 +108,11 @@ namespace AD_indiviual_project.Pages
 
             DataTable dataTable = medicationController.SearchMedications(searchText);
             dataGridView1.DataSource = dataTable;
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            LoadMedicationRecords();
         }
     }
 }

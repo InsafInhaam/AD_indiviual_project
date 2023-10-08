@@ -23,6 +23,7 @@ namespace AD_indiviual_project.Models
             InitializeComponent();
             billingController = new BillingController(connectionString);
             InitializeComboBoxes();
+            LoadPatientNames();
         }
 
         private void InitializeComboBoxes()
@@ -30,7 +31,7 @@ namespace AD_indiviual_project.Models
             // Populate Billing Type ComboBox
             cmbBillingType.Items.Add("Procedure");
             cmbBillingType.Items.Add("Medication");
-            cmbBillingType.Items.Add("Consultation");
+            cmbBillingType.Items.Add("Appointments");
             // Add more billing types as needed
 
             // Populate Payment Status ComboBox
@@ -39,7 +40,6 @@ namespace AD_indiviual_project.Models
             cmbPaymentStatus.Items.Add("Overdue");
             // Add more payment statuses as needed
         }
-
         private void LoadPatientNames()
         {
             DataTable patientsTable = billingController.GetPatients();
@@ -61,16 +61,24 @@ namespace AD_indiviual_project.Models
             Billing billing = new Billing
             {
                 BillingType = cmbBillingType.SelectedItem.ToString(),
-                PatientID = Convert.ToInt32(txtPatientID.Text),
-                ProcedureID = string.IsNullOrEmpty(billingTypeId.Text) ? (int?)null : Convert.ToInt32(billingTypeId.Text),
-                MedicationID = string.IsNullOrEmpty(billingTypeId.Text) ? (int?)null : Convert.ToInt32(billingTypeId.Text),
-                ConsultationID = string.IsNullOrEmpty(billingTypeId.Text) ? (int?)null : Convert.ToInt32(billingTypeId.Text),
+                // PatientID = Convert.ToInt32(txtPatientID.Text),
+                // ProcedureID = string.IsNullOrEmpty(billingTypeId.Text) ? (int?)null : Convert.ToInt32(billingTypeId.Text),
+                // MedicationID = string.IsNullOrEmpty(billingTypeId.Text) ? (int?)null : Convert.ToInt32(billingTypeId.Text),
+                //ConsultationID = string.IsNullOrEmpty(billingTypeId.Text) ? (int?)null : Convert.ToInt32(billingTypeId.Text),
+                PatientID = (int)txtPatientID.SelectedValue,
+                ProcedureID = string.IsNullOrEmpty(billingTypeId.Text) ? (int?)null : (int?)billingTypeId.SelectedValue,
+                MedicationID = string.IsNullOrEmpty(billingTypeId.Text) ? (int?)null : (int?)billingTypeId.SelectedValue,
+                ConsultationID = string.IsNullOrEmpty(billingTypeId.Text) ? (int?)null : (int?)billingTypeId.SelectedValue,
+
                 BillingDate = dtpBillingDate.Value,
                 Amount = decimal.Parse(txtAmount.Text),
                 PaymentStatus = cmbPaymentStatus.SelectedItem.ToString(),
                 PaymentDate = string.IsNullOrEmpty(txtPaymentDate.Text) ? (DateTime?)null : DateTime.Parse(txtPaymentDate.Text),
                 Notes = txtNotes.Text
             };
+
+            Console.WriteLine($"txtPatientID.Text: {txtPatientID.Text}");
+
 
             if (billingController.CreateBilling(billing))
             {
@@ -80,17 +88,16 @@ namespace AD_indiviual_project.Models
             {
                 MessageBox.Show("Failed to create billing record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
 
         private void cmbBillingType_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Handle the selection change event.
             string selectedBillingType = cmbBillingType.SelectedItem.ToString();
+            //string selectedPatient = txtPatientID.SelectedItem.ToString();
 
             // Fetch data from the database based on the selected billing type.
-            DataTable billingData = billingController.GetBillingData(selectedBillingType);
+            DataTable billingData = billingController.GetBillingData(selectedBillingType , (int)txtPatientID.SelectedValue);
 
             // Display the fetched data in the dgvBillingData DataGridView.
             //dgvBillingData.DataSource = billingData;
@@ -100,18 +107,18 @@ namespace AD_indiviual_project.Models
                 {
                     case "Procedure":
                         billingTypeId.DataSource = billingData;
-                        billingTypeId.DisplayMember = "ProcedureName";
-                        billingTypeId.ValueMember = "ProcedureId";
+                        billingTypeId.DisplayMember = "ProceduresType";
+                        billingTypeId.ValueMember = "ProcedureID";
                         break;
                     case "Medication":
                         billingTypeId.DataSource = billingData;
                         billingTypeId.DisplayMember = "MedicationName";
                         billingTypeId.ValueMember = "MedicationId";
                         break;
-                    case "Consultation":
+                    case "Appointments":
                         billingTypeId.DataSource = billingData;
-                        billingTypeId.DisplayMember = "ConsultationName";
-                        billingTypeId.ValueMember = "ConsultationId";
+                        billingTypeId.DisplayMember = "Description";
+                        billingTypeId.ValueMember = "AppointmentID";
                         break;
                     default:
                         // Handle invalid billing types.

@@ -14,7 +14,6 @@ namespace AD_indiviual_project.Forms
             string loggedInUser = Session.Username;
             welcomeLabel.Text = $"Welcome, {loggedInUser}!";
 
-            // Call a method to set up the sidebar based on the user's role
             SetupSidebar();
             loadform(new Dashboard());
         }
@@ -33,28 +32,17 @@ namespace AD_indiviual_project.Forms
 
         private void SetupSidebar()
         {
-            // Check the user's role from the session
-            if (Session.Role == "1")  // 1 is for admin
+            if (Session.Role == "Admin")  
             {
-                // Show admin-specific menu items
-                btnDoctor.Visible = true;
-                btnRooms.Visible = true;
-
-                // Hide staff-specific menu items
-                btnStaff.Visible = false;
-                btnPatient.Visible = false;
-                btnAppointment.Visible = false;
+                BtnReport.Visible = true;
+                btnUsers.Visible = true;
+                BtnResources.Visible = true;
             }
-            else if (Session.Role == "0")  // 0 is for staffs
+            else if (Session.Role == "Staff")  
             {
-                // Show staff-specific menu items
-                btnStaff.Visible = true;
-                btnPatient.Visible = true;
-                btnAppointment.Visible = true;
-
-                // Hide admin-specific menu items
-                btnDoctor.Visible = false;
-                btnRooms.Visible = false;
+                BtnReport.Visible = false;
+                btnUsers.Visible = false;
+                BtnResources.Visible = false;
             }
         }
 
@@ -65,11 +53,9 @@ namespace AD_indiviual_project.Forms
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            // Clear user session
             Session.Username = null;
             Session.Role = null;
 
-            // Navigate back to the login form
             UserLogin loginForm = new UserLogin();
             loginForm.Show();
             this.Close();
@@ -150,6 +136,11 @@ namespace AD_indiviual_project.Forms
         private void guna2Button6_Click(object sender, EventArgs e)
         {
             loadform(new Procedures());
+        }
+
+        private void guna2Button7_Click(object sender, EventArgs e)
+        {
+            loadform(new GenarateReport());
         }
     }
 }

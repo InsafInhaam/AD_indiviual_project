@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddStaff));
             this.btnAddPatient = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -54,13 +53,12 @@
             this.HireDatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.BirthdatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.PositionTextBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.SuspendLayout();
             // 
             // btnAddPatient
             // 
             this.btnAddPatient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnAddPatient.Location = new System.Drawing.Point(440, 637);
+            this.btnAddPatient.Location = new System.Drawing.Point(735, 532);
             this.btnAddPatient.Name = "btnAddPatient";
             this.btnAddPatient.Size = new System.Drawing.Size(134, 50);
             this.btnAddPatient.TabIndex = 51;
@@ -72,7 +70,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(554, 184);
+            this.label8.Location = new System.Drawing.Point(517, 181);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 20);
             this.label8.TabIndex = 43;
@@ -82,7 +80,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(553, 107);
+            this.label9.Location = new System.Drawing.Point(516, 104);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 20);
             this.label9.TabIndex = 42;
@@ -92,7 +90,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(552, 264);
+            this.label5.Location = new System.Drawing.Point(515, 261);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 20);
             this.label5.TabIndex = 38;
@@ -102,7 +100,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(98, 264);
+            this.label4.Location = new System.Drawing.Point(61, 261);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 20);
             this.label4.TabIndex = 37;
@@ -112,7 +110,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(98, 184);
+            this.label3.Location = new System.Drawing.Point(61, 181);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 20);
             this.label3.TabIndex = 36;
@@ -122,7 +120,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(98, 107);
+            this.label2.Location = new System.Drawing.Point(61, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 20);
             this.label2.TabIndex = 35;
@@ -143,7 +141,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(98, 434);
+            this.label10.Location = new System.Drawing.Point(61, 431);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(97, 20);
             this.label10.TabIndex = 55;
@@ -154,7 +152,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(552, 352);
+            this.label11.Location = new System.Drawing.Point(515, 349);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 20);
             this.label11.TabIndex = 57;
@@ -164,7 +162,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(554, 434);
+            this.label12.Location = new System.Drawing.Point(517, 431);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(77, 20);
             this.label12.TabIndex = 61;
@@ -174,7 +172,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(98, 521);
+            this.label13.Location = new System.Drawing.Point(61, 518);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(56, 20);
             this.label13.TabIndex = 59;
@@ -184,7 +182,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(389, 28);
+            this.label15.Location = new System.Drawing.Point(352, 25);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(226, 38);
             this.label15.TabIndex = 64;
@@ -203,7 +201,7 @@
             this.staffFirstnameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.staffFirstnameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.staffFirstnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.staffFirstnameTextBox.Location = new System.Drawing.Point(102, 131);
+            this.staffFirstnameTextBox.Location = new System.Drawing.Point(65, 128);
             this.staffFirstnameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.staffFirstnameTextBox.Name = "staffFirstnameTextBox";
             this.staffFirstnameTextBox.PasswordChar = '\0';
@@ -223,7 +221,7 @@
             this.staffLastnameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.staffLastnameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.staffLastnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.staffLastnameTextBox.Location = new System.Drawing.Point(556, 133);
+            this.staffLastnameTextBox.Location = new System.Drawing.Point(519, 130);
             this.staffLastnameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.staffLastnameTextBox.Name = "staffLastnameTextBox";
             this.staffLastnameTextBox.PasswordChar = '\0';
@@ -246,7 +244,7 @@
             "Male",
             "Female",
             "Not preferred"});
-            this.GenderComboBox.Location = new System.Drawing.Point(102, 207);
+            this.GenderComboBox.Location = new System.Drawing.Point(65, 204);
             this.GenderComboBox.Name = "GenderComboBox";
             this.GenderComboBox.Size = new System.Drawing.Size(350, 36);
             this.GenderComboBox.TabIndex = 69;
@@ -262,7 +260,7 @@
             this.EmailTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.EmailTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.EmailTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.EmailTextBox.Location = new System.Drawing.Point(102, 288);
+            this.EmailTextBox.Location = new System.Drawing.Point(65, 285);
             this.EmailTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.PasswordChar = '\0';
@@ -282,7 +280,7 @@
             this.DepartmentTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.DepartmentTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.DepartmentTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.DepartmentTextBox.Location = new System.Drawing.Point(102, 459);
+            this.DepartmentTextBox.Location = new System.Drawing.Point(65, 456);
             this.DepartmentTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DepartmentTextBox.Name = "DepartmentTextBox";
             this.DepartmentTextBox.PasswordChar = '\0';
@@ -302,7 +300,7 @@
             this.SalaryTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SalaryTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.SalaryTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SalaryTextBox.Location = new System.Drawing.Point(102, 545);
+            this.SalaryTextBox.Location = new System.Drawing.Point(65, 542);
             this.SalaryTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SalaryTextBox.Name = "SalaryTextBox";
             this.SalaryTextBox.PasswordChar = '\0';
@@ -322,7 +320,7 @@
             this.PhoneTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PhoneTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.PhoneTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PhoneTextBox.Location = new System.Drawing.Point(556, 288);
+            this.PhoneTextBox.Location = new System.Drawing.Point(519, 285);
             this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.PasswordChar = '\0';
@@ -335,7 +333,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(98, 352);
+            this.label16.Location = new System.Drawing.Point(61, 349);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(71, 20);
             this.label16.TabIndex = 79;
@@ -352,7 +350,7 @@
             this.AddressTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.AddressTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.AddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AddressTextBox.Location = new System.Drawing.Point(102, 377);
+            this.AddressTextBox.Location = new System.Drawing.Point(65, 374);
             this.AddressTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddressTextBox.Name = "AddressTextBox";
             this.AddressTextBox.PasswordChar = '\0';
@@ -366,7 +364,7 @@
             this.HireDatePicker.Checked = true;
             this.HireDatePicker.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.HireDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.HireDatePicker.Location = new System.Drawing.Point(556, 459);
+            this.HireDatePicker.Location = new System.Drawing.Point(519, 456);
             this.HireDatePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.HireDatePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.HireDatePicker.Name = "HireDatePicker";
@@ -379,7 +377,7 @@
             this.BirthdatePicker.Checked = true;
             this.BirthdatePicker.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.BirthdatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.BirthdatePicker.Location = new System.Drawing.Point(556, 207);
+            this.BirthdatePicker.Location = new System.Drawing.Point(519, 204);
             this.BirthdatePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.BirthdatePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.BirthdatePicker.Name = "BirthdatePicker";
@@ -402,36 +400,17 @@
             "Cleaner",
             "Nursue",
             "Laboraty"});
-            this.PositionTextBox.Location = new System.Drawing.Point(556, 377);
+            this.PositionTextBox.Location = new System.Drawing.Point(519, 374);
             this.PositionTextBox.Name = "PositionTextBox";
             this.PositionTextBox.Size = new System.Drawing.Size(350, 36);
             this.PositionTextBox.TabIndex = 84;
-            // 
-            // guna2ImageButton1
-            // 
-            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2ImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton1.Image")));
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2ImageButton1.IndicateFocus = true;
-            this.guna2ImageButton1.Location = new System.Drawing.Point(937, 12);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(64, 54);
-            this.guna2ImageButton1.TabIndex = 83;
-            this.guna2ImageButton1.UseTransparentBackground = true;
-            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
             // 
             // AddStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 740);
+            this.ClientSize = new System.Drawing.Size(936, 628);
             this.Controls.Add(this.PositionTextBox);
-            this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.BirthdatePicker);
             this.Controls.Add(this.HireDatePicker);
             this.Controls.Add(this.AddressTextBox);
@@ -456,7 +435,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "AddStaff";
             this.Text = "AddStaff";
             this.Load += new System.EventHandler(this.AddStaff_Load);
@@ -491,7 +470,6 @@
         private Guna.UI2.WinForms.Guna2TextBox AddressTextBox;
         private Guna.UI2.WinForms.Guna2DateTimePicker HireDatePicker;
         private Guna.UI2.WinForms.Guna2DateTimePicker BirthdatePicker;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
         private Guna.UI2.WinForms.Guna2ComboBox PositionTextBox;
     }
 }

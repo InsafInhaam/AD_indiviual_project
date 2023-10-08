@@ -96,5 +96,10 @@ namespace AD_indiviual_project.Pages
                 MessageBox.Show("Please select a single appointment record to update.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            LoadAppointmentRecords();
+        }
     }
 }

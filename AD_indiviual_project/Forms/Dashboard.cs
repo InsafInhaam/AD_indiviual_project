@@ -21,7 +21,7 @@ namespace AD_indiviual_project.Forms
         {
             InitializeComponent();
             dashboardManager = new DashboardController(connectionString);
-            UpdateTotalCounts();    // Call the method to update the total counts.
+            UpdateTotalCounts();    
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -29,12 +29,10 @@ namespace AD_indiviual_project.Forms
 
         }
 
-        // Method to update the total counts and display them on the form.
         private void UpdateTotalCounts()
         {
             try
             {
-                // Get the total counts using DashboardCount instance.
                 int staffCount = dashboardManager.GetStaffTotalCount();
                 int doctorCount = dashboardManager.GetDoctorsTotalCount();
                 int patientCount = dashboardManager.GetPatientsCount();
@@ -42,7 +40,6 @@ namespace AD_indiviual_project.Forms
                 int appointmentCount = dashboardManager.GetAppointmentTotalCount();
                 int roomsCount = dashboardManager.GetRoomsTotalCount();
 
-                // Update the labels to display the counts.
                 Patientlabel.Text = patientCount.ToString();
                 Stafflabel.Text = staffCount.ToString();
                 Doctorlabel.Text = doctorCount.ToString();

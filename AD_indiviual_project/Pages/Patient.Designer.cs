@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Patient));
             this.btnDelete = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.searchTerm = new Guna.UI2.WinForms.Guna2TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.searchTerm = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -93,6 +95,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.guna2ImageButton1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.searchTerm);
             this.panel1.Controls.Add(this.label2);
@@ -104,6 +107,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(900, 560);
             this.panel1.TabIndex = 11;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(585, 26);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(132, 40);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Patient EMR";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // searchTerm
             // 
@@ -126,15 +139,20 @@
             this.searchTerm.TabIndex = 11;
             this.searchTerm.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
             // 
-            // button3
+            // guna2ImageButton1
             // 
-            this.button3.Location = new System.Drawing.Point(585, 26);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(132, 40);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Patient EMR";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton1.Image")));
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(516, 75);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(47, 53);
+            this.guna2ImageButton1.TabIndex = 19;
+            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
             // 
             // Patient
             // 
@@ -162,5 +180,6 @@
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2TextBox searchTerm;
         private System.Windows.Forms.Button button3;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
     }
 }

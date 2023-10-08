@@ -91,17 +91,13 @@ namespace AD_indiviual_project.Pages
             {
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-                // Extract the patient ID from the selected row
                 int patientId = Convert.ToInt32(selectedRow.Cells["patientid"].Value);
 
-                // Open an update form or dialog to modify patient information
-                // You can pass the patientId to the update form so it knows which record to update
                 UpdatePatient updateForm = new UpdatePatient(patientId);
                 DialogResult result = updateForm.ShowDialog();
 
                 if (result == DialogResult.OK)
                 {
-                    // Refresh the patient records after the update
                     LoadPatientRecords();
                 }
             }
@@ -117,17 +113,14 @@ namespace AD_indiviual_project.Pages
             {
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-                // Extract the patient ID from the selected row
                 int patientId = Convert.ToInt32(selectedRow.Cells["patientid"].Value);
 
-                // Create a new instance of the ViewProcedures form
                 ViewPatient viewPatient = new ViewPatient(patientId);
 
                 DialogResult result = viewPatient.ShowDialog();
 
                 if (result == DialogResult.OK)
                 {
-                    // Refresh the patient records after the update
                     LoadPatientRecords();
                 }
             }
@@ -135,6 +128,11 @@ namespace AD_indiviual_project.Pages
             {
                 MessageBox.Show("Please select a single patient record to update.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            LoadPatientRecords();
         }
     }
 }

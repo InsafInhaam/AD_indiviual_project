@@ -72,7 +72,6 @@ namespace AD_indiviual_project.Controller
                     connection.Open();
 
                     string query = "SELECT * FROM staffs WHERE first_name LIKE @SearchText OR gender LIKE @SearchText";
-                    // You can modify the query to include additional search fields
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -184,11 +183,6 @@ namespace AD_indiviual_project.Controller
                 Console.WriteLine("An error occurred: " + ex.Message);
                 return false;
             }
-        }
-
-        internal bool UpdateStaff(string text1, string text2, string v1, DateTime value1, string text3, string text4, string text5, string text6, string text7, decimal v2, DateTime value2)
-        {
-            throw new NotImplementedException();
         }
     }
 }

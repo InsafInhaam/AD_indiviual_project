@@ -29,7 +29,7 @@ namespace AD_indiviual_project.Pages
             {
                 connection.Open();
 
-                string query = "SELECT * FROM Procedures"; // Change this query as needed
+                string query = "SELECT * FROM Procedures"; 
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -37,7 +37,7 @@ namespace AD_indiviual_project.Pages
                     DataTable dataTable = new DataTable();
                     dataAdapter.Fill(dataTable);
 
-                    dataGridView1.DataSource = dataTable; // Assuming dataGridView1 is the name of your DataGridView control
+                    dataGridView1.DataSource = dataTable; 
                 }
             }
         }
@@ -48,16 +48,13 @@ namespace AD_indiviual_project.Pages
             {
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-                // Extract the patient ID from the selected row
                 int ProcedureID = Convert.ToInt32(selectedRow.Cells["ProcedureID"].Value);
 
-                // Create a new instance of the ViewProcedures form
                 ViewProcedures viewForm = new ViewProcedures(ProcedureID);
                 DialogResult result = viewForm.ShowDialog();
 
                 if (result == DialogResult.OK)
                 {
-                    // Refresh the patient records after the update
                     LoadProceduresRecords();
                 }
             }
@@ -65,6 +62,12 @@ namespace AD_indiviual_project.Pages
             {
                 MessageBox.Show("Please select a single patient record to update.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            LoadProceduresRecords();
+
         }
     }
 }

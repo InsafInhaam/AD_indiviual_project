@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUsers));
             this.StaffID = new System.Windows.Forms.Label();
             this.roleTextBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.usernameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -40,14 +39,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.staffIDTextBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.SuspendLayout();
             // 
             // StaffID
             // 
             this.StaffID.AutoSize = true;
             this.StaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffID.Location = new System.Drawing.Point(101, 230);
+            this.StaffID.Location = new System.Drawing.Point(59, 231);
             this.StaffID.Name = "StaffID";
             this.StaffID.Size = new System.Drawing.Size(66, 20);
             this.StaffID.TabIndex = 111;
@@ -66,7 +64,7 @@
             this.roleTextBox.Items.AddRange(new object[] {
             "Admin",
             "Staff"});
-            this.roleTextBox.Location = new System.Drawing.Point(558, 254);
+            this.roleTextBox.Location = new System.Drawing.Point(516, 255);
             this.roleTextBox.Name = "roleTextBox";
             this.roleTextBox.Size = new System.Drawing.Size(350, 36);
             this.roleTextBox.TabIndex = 110;
@@ -82,7 +80,7 @@
             this.usernameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.usernameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.usernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.usernameTextBox.Location = new System.Drawing.Point(105, 163);
+            this.usernameTextBox.Location = new System.Drawing.Point(63, 164);
             this.usernameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.PasswordChar = '\0';
@@ -102,7 +100,7 @@
             this.passwordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.passwordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.passwordTextBox.Location = new System.Drawing.Point(559, 163);
+            this.passwordTextBox.Location = new System.Drawing.Point(517, 164);
             this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '\0';
@@ -115,7 +113,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(392, 27);
+            this.label15.Location = new System.Drawing.Point(350, 28);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(229, 38);
             this.label15.TabIndex = 100;
@@ -126,7 +124,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(101, 139);
+            this.label14.Location = new System.Drawing.Point(59, 140);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(86, 20);
             this.label14.TabIndex = 99;
@@ -136,7 +134,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(555, 230);
+            this.label6.Location = new System.Drawing.Point(513, 231);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 20);
             this.label6.TabIndex = 94;
@@ -145,7 +143,7 @@
             // btnAddPatient
             // 
             this.btnAddPatient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnAddPatient.Location = new System.Drawing.Point(446, 345);
+            this.btnAddPatient.Location = new System.Drawing.Point(404, 346);
             this.btnAddPatient.Name = "btnAddPatient";
             this.btnAddPatient.Size = new System.Drawing.Size(134, 50);
             this.btnAddPatient.TabIndex = 93;
@@ -157,7 +155,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(554, 139);
+            this.label7.Location = new System.Drawing.Point(512, 140);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 20);
             this.label7.TabIndex = 92;
@@ -184,36 +182,17 @@
             this.staffIDTextBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.staffIDTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.staffIDTextBox.ItemHeight = 30;
-            this.staffIDTextBox.Location = new System.Drawing.Point(105, 254);
+            this.staffIDTextBox.Location = new System.Drawing.Point(63, 255);
             this.staffIDTextBox.Name = "staffIDTextBox";
             this.staffIDTextBox.Size = new System.Drawing.Size(350, 36);
             this.staffIDTextBox.TabIndex = 116;
-            // 
-            // guna2ImageButton1
-            // 
-            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2ImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton1.Image")));
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2ImageButton1.IndicateFocus = true;
-            this.guna2ImageButton1.Location = new System.Drawing.Point(901, 27);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(64, 54);
-            this.guna2ImageButton1.TabIndex = 115;
-            this.guna2ImageButton1.UseTransparentBackground = true;
-            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
             // 
             // AddUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 446);
+            this.ClientSize = new System.Drawing.Size(933, 430);
             this.Controls.Add(this.staffIDTextBox);
-            this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.StaffID);
             this.Controls.Add(this.roleTextBox);
             this.Controls.Add(this.usernameTextBox);
@@ -224,7 +203,7 @@
             this.Controls.Add(this.btnAddPatient);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "AddUsers";
             this.Text = "AddUsers";
             this.ResumeLayout(false);
@@ -233,7 +212,6 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
         private System.Windows.Forms.Label StaffID;
         private Guna.UI2.WinForms.Guna2ComboBox roleTextBox;
         private Guna.UI2.WinForms.Guna2TextBox usernameTextBox;

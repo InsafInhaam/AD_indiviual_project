@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.AllergiesTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -58,7 +57,6 @@
             this.AppointmentsDataGridView = new System.Windows.Forms.DataGridView();
             this.MeditationsDataGridView = new System.Windows.Forms.DataGridView();
             this.ProceduresDataGridView = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MeditationsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProceduresDataGridView)).BeginInit();
@@ -68,22 +66,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(647, 37);
+            this.label1.Location = new System.Drawing.Point(434, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(337, 38);
             this.label1.TabIndex = 92;
             this.label1.Text = "Patient Record (EMR)";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(42, 123);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(150, 150);
-            this.guna2CirclePictureBox1.TabIndex = 93;
-            this.guna2CirclePictureBox1.TabStop = false;
             // 
             // label13
             // 
@@ -118,7 +106,7 @@
             this.AllergiesTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.AllergiesTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.AllergiesTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AllergiesTextBox.Location = new System.Drawing.Point(225, 401);
+            this.AllergiesTextBox.Location = new System.Drawing.Point(42, 406);
             this.AllergiesTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AllergiesTextBox.Name = "AllergiesTextBox";
             this.AllergiesTextBox.PasswordChar = '\0';
@@ -138,7 +126,7 @@
             this.MedicalHistoryTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.MedicalHistoryTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.MedicalHistoryTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.MedicalHistoryTextBox.Location = new System.Drawing.Point(612, 401);
+            this.MedicalHistoryTextBox.Location = new System.Drawing.Point(429, 406);
             this.MedicalHistoryTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MedicalHistoryTextBox.Name = "MedicalHistoryTextBox";
             this.MedicalHistoryTextBox.PasswordChar = '\0';
@@ -161,7 +149,7 @@
             "Male",
             "Female",
             "Not Prefered"});
-            this.GenderComboBox.Location = new System.Drawing.Point(225, 233);
+            this.GenderComboBox.Location = new System.Drawing.Point(42, 238);
             this.GenderComboBox.Name = "GenderComboBox";
             this.GenderComboBox.Size = new System.Drawing.Size(347, 36);
             this.GenderComboBox.TabIndex = 118;
@@ -177,7 +165,7 @@
             this.InsuranceProviderTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.InsuranceProviderTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.InsuranceProviderTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.InsuranceProviderTextBox.Location = new System.Drawing.Point(1000, 313);
+            this.InsuranceProviderTextBox.Location = new System.Drawing.Point(817, 318);
             this.InsuranceProviderTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.InsuranceProviderTextBox.Name = "InsuranceProviderTextBox";
             this.InsuranceProviderTextBox.PasswordChar = '\0';
@@ -198,7 +186,7 @@
             this.PrimaryDoctorTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PrimaryDoctorTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.PrimaryDoctorTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PrimaryDoctorTextBox.Location = new System.Drawing.Point(1000, 233);
+            this.PrimaryDoctorTextBox.Location = new System.Drawing.Point(817, 238);
             this.PrimaryDoctorTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PrimaryDoctorTextBox.Name = "PrimaryDoctorTextBox";
             this.PrimaryDoctorTextBox.PasswordChar = '\0';
@@ -219,7 +207,7 @@
             this.AddressTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.AddressTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.AddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AddressTextBox.Location = new System.Drawing.Point(1000, 156);
+            this.AddressTextBox.Location = new System.Drawing.Point(817, 161);
             this.AddressTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddressTextBox.Name = "AddressTextBox";
             this.AddressTextBox.PasswordChar = '\0';
@@ -240,7 +228,7 @@
             this.PhoneTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PhoneTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.PhoneTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PhoneTextBox.Location = new System.Drawing.Point(612, 321);
+            this.PhoneTextBox.Location = new System.Drawing.Point(429, 326);
             this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.PasswordChar = '\0';
@@ -260,7 +248,7 @@
             this.EmailTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.EmailTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.EmailTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.EmailTextBox.Location = new System.Drawing.Point(222, 321);
+            this.EmailTextBox.Location = new System.Drawing.Point(39, 326);
             this.EmailTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.PasswordChar = '\0';
@@ -280,7 +268,7 @@
             this.FirstNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.FirstNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FirstNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.FirstNameTextBox.Location = new System.Drawing.Point(225, 156);
+            this.FirstNameTextBox.Location = new System.Drawing.Point(42, 161);
             this.FirstNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.PasswordChar = '\0';
@@ -300,7 +288,7 @@
             this.LastNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.LastNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.LastNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.LastNameTextBox.Location = new System.Drawing.Point(612, 156);
+            this.LastNameTextBox.Location = new System.Drawing.Point(429, 161);
             this.LastNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.PasswordChar = '\0';
@@ -314,7 +302,7 @@
             this.BirthdatePicker.Checked = true;
             this.BirthdatePicker.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.BirthdatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.BirthdatePicker.Location = new System.Drawing.Point(612, 244);
+            this.BirthdatePicker.Location = new System.Drawing.Point(429, 249);
             this.BirthdatePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.BirthdatePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.BirthdatePicker.Name = "BirthdatePicker";
@@ -326,7 +314,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(999, 289);
+            this.label12.Location = new System.Drawing.Point(816, 294);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(149, 20);
             this.label12.TabIndex = 108;
@@ -337,7 +325,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(996, 209);
+            this.label10.Location = new System.Drawing.Point(813, 214);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(123, 20);
             this.label10.TabIndex = 107;
@@ -348,7 +336,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(221, 377);
+            this.label11.Location = new System.Drawing.Point(38, 382);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(74, 20);
             this.label11.TabIndex = 106;
@@ -358,7 +346,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(608, 377);
+            this.label6.Location = new System.Drawing.Point(425, 382);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(126, 20);
             this.label6.TabIndex = 105;
@@ -368,7 +356,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(608, 297);
+            this.label7.Location = new System.Drawing.Point(425, 302);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 20);
             this.label7.TabIndex = 104;
@@ -378,7 +366,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(608, 218);
+            this.label8.Location = new System.Drawing.Point(425, 223);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 20);
             this.label8.TabIndex = 103;
@@ -388,7 +376,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(608, 132);
+            this.label9.Location = new System.Drawing.Point(425, 137);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 20);
             this.label9.TabIndex = 102;
@@ -398,7 +386,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(999, 132);
+            this.label5.Location = new System.Drawing.Point(816, 137);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 20);
             this.label5.TabIndex = 101;
@@ -409,7 +397,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(221, 297);
+            this.label4.Location = new System.Drawing.Point(38, 302);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 20);
             this.label4.TabIndex = 100;
@@ -419,7 +407,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(221, 210);
+            this.label3.Location = new System.Drawing.Point(38, 215);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 20);
             this.label3.TabIndex = 99;
@@ -429,7 +417,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(221, 132);
+            this.label2.Location = new System.Drawing.Point(38, 137);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 20);
             this.label2.TabIndex = 98;
@@ -453,7 +441,7 @@
             this.AppointmentsDataGridView.Name = "AppointmentsDataGridView";
             this.AppointmentsDataGridView.RowHeadersWidth = 51;
             this.AppointmentsDataGridView.RowTemplate.Height = 24;
-            this.AppointmentsDataGridView.Size = new System.Drawing.Size(1308, 324);
+            this.AppointmentsDataGridView.Size = new System.Drawing.Size(1125, 324);
             this.AppointmentsDataGridView.TabIndex = 124;
             // 
             // MeditationsDataGridView
@@ -463,7 +451,7 @@
             this.MeditationsDataGridView.Name = "MeditationsDataGridView";
             this.MeditationsDataGridView.RowHeadersWidth = 51;
             this.MeditationsDataGridView.RowTemplate.Height = 24;
-            this.MeditationsDataGridView.Size = new System.Drawing.Size(1308, 324);
+            this.MeditationsDataGridView.Size = new System.Drawing.Size(1125, 324);
             this.MeditationsDataGridView.TabIndex = 125;
             this.MeditationsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MeditationsDataGridView_CellContentClick);
             // 
@@ -474,7 +462,7 @@
             this.ProceduresDataGridView.Name = "ProceduresDataGridView";
             this.ProceduresDataGridView.RowHeadersWidth = 51;
             this.ProceduresDataGridView.RowTemplate.Height = 24;
-            this.ProceduresDataGridView.Size = new System.Drawing.Size(1308, 324);
+            this.ProceduresDataGridView.Size = new System.Drawing.Size(1125, 324);
             this.ProceduresDataGridView.TabIndex = 126;
             // 
             // ViewPatient
@@ -482,7 +470,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1390, 1833);
+            this.ClientSize = new System.Drawing.Size(1212, 1833);
             this.Controls.Add(this.ProceduresDataGridView);
             this.Controls.Add(this.MeditationsDataGridView);
             this.Controls.Add(this.AppointmentsDataGridView);
@@ -511,12 +499,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.guna2CirclePictureBox1);
             this.Controls.Add(this.label1);
             this.Name = "ViewPatient";
             this.Text = "ViewPatient";
             this.Load += new System.EventHandler(this.ViewPatient_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MeditationsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProceduresDataGridView)).EndInit();
@@ -527,7 +513,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private Guna.UI2.WinForms.Guna2TextBox AllergiesTextBox;

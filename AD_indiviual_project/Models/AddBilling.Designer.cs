@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBilling));
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.cmbPaymentStatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtPaymentDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.dtpBillingDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -49,23 +47,6 @@
             this.billingTypeId = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // guna2ImageButton1
-            // 
-            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2ImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton1.Image")));
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2ImageButton1.IndicateFocus = true;
-            this.guna2ImageButton1.Location = new System.Drawing.Point(1124, 23);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(64, 54);
-            this.guna2ImageButton1.TabIndex = 230;
-            this.guna2ImageButton1.UseTransparentBackground = true;
             // 
             // cmbPaymentStatus
             // 
@@ -118,10 +99,6 @@
             this.txtPatientID.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPatientID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.txtPatientID.ItemHeight = 30;
-            this.txtPatientID.Items.AddRange(new object[] {
-            "Procedure",
-            "Medication",
-            "Consultation"});
             this.txtPatientID.Location = new System.Drawing.Point(34, 164);
             this.txtPatientID.Name = "txtPatientID";
             this.txtPatientID.Size = new System.Drawing.Size(350, 36);
@@ -144,7 +121,7 @@
             this.btnAddPatient.Name = "btnAddPatient";
             this.btnAddPatient.Size = new System.Drawing.Size(134, 50);
             this.btnAddPatient.TabIndex = 223;
-            this.btnAddPatient.Text = "Add Medication";
+            this.btnAddPatient.Text = "Add";
             this.btnAddPatient.UseVisualStyleBackColor = false;
             this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
             // 
@@ -309,7 +286,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbBillingType);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.cmbPaymentStatus);
             this.Controls.Add(this.txtPaymentDate);
             this.Controls.Add(this.dtpBillingDate);
@@ -334,8 +310,6 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
         private Guna.UI2.WinForms.Guna2ComboBox cmbPaymentStatus;
         private Guna.UI2.WinForms.Guna2DateTimePicker txtPaymentDate;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpBillingDate;
@@ -350,9 +324,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbBillingType;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2ComboBox billingTypeId;
         private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbBillingType;
     }
 }

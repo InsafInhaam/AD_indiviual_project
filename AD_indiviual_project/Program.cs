@@ -18,19 +18,17 @@ namespace AD_indiviual_project
 
             if (IsUserLoggedIn())
             {
-                Application.Run(new FrmMain()); // Show the main form
+                Application.Run(new FrmMain()); 
             }
             else
             {
-                Application.Run(new UserLogin()); // Redirect to the login form
+                Application.Run(new UserLogin()); 
             }
         }
 
         static bool IsUserLoggedIn()
         {
-            // Add your logic here to check if the user is logged in
-            // For example, you could check if the session has a valid username
-            // and role stored in it.
+            
             return !string.IsNullOrEmpty(Session.Username) && !string.IsNullOrEmpty(Session.Role);
         }
     }

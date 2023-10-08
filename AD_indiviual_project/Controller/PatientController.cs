@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Data;
+using AD_indiviual_project.Pages;
 
 namespace AD_indiviual_project.Controller
 {
@@ -46,18 +47,80 @@ namespace AD_indiviual_project.Controller
             {
                 connection.Open();
 
-                string deleteQuery = "DELETE FROM patients WHERE patientid = @PatientId";
-
-                using (SqlCommand command = new SqlCommand(deleteQuery, connection))
+                using (SqlTransaction transaction = connection.BeginTransaction())
                 {
-                    command.Parameters.AddWithValue("@PatientId", patientId);
+                    try
+                    {
+                        string deleteAppointmentsQuery = "DELETE FROM Appointments WHERE PatientID = @PatientId";
+                        using (SqlCommand appointmentsCommand = new SqlCommand(deleteAppointmentsQuery, connection, transaction))
+                        {
+                            appointmentsCommand.Parameters.AddWithValue("@PatientId", patientId);
+                            appointmentsCommand.ExecuteNonQuery();
+                        }
 
-                    int rowsAffected = command.ExecuteNonQuery();
+                        // Delete records from Billings table
+                        string deleteBillingsQuery = "DELETE FROM Billings WHERE PatientID = @PatientId";
+                        using (SqlCommand billingsCommand = new SqlCommand(deleteBillingsQuery, connection, transaction))
+                        {
+                            billingsCommand.Parameters.AddWithValue("@PatientId", patientId);
+                            billingsCommand.ExecuteNonQuery();
+                        }
 
-                    return rowsAffected > 0;
+                        //Delete records from Medications table
+                        string deleteMedicationsQuery = "DELETE FROM Medications WHERE PatientId = @PatientId";
+                        using (SqlCommand medicationsCommand = new SqlCommand(deleteMedicationsQuery, connection, transaction))
+                        {
+                            medicationsCommand.Parameters.AddWithValue("@PatientId", patientId);
+                            medicationsCommand.ExecuteNonQuery();
+                        }
+
+                        //  Delete records from Procedures table
+                        string deleteProceduresQuery = "DELETE FROM Procedures WHERE PatientID = @PatientId";
+                        using (SqlCommand proceduresCommand = new SqlCommand(deleteProceduresQuery, connection, transaction))
+                        {
+                            proceduresCommand.Parameters.AddWithValue("@PatientId", patientId);
+                            proceduresCommand.ExecuteNonQuery();
+                        }
+
+                        //  Delete records from RoomBookings table
+                        string deleteRoomBookingsQuery = "DELETE FROM RoomBookings WHERE patient_id = @PatientId";
+                        using (SqlCommand roomBookingsCommand = new SqlCommand(deleteRoomBookingsQuery, connection, transaction))
+                        {
+                            roomBookingsCommand.Parameters.AddWithValue("@PatientId", patientId);
+                            roomBookingsCommand.ExecuteNonQuery();
+                        }
+
+                        // Now delete the patient record
+                        string deletePatientQuery = "DELETE FROM patients WHERE patientid = @PatientId";
+                        using (SqlCommand patientCommand = new SqlCommand(deletePatientQuery, connection, transaction))
+                        {
+                            patientCommand.Parameters.AddWithValue("@PatientId", patientId);
+                            int rowsAffected = patientCommand.ExecuteNonQuery();
+
+                            // Commit the transaction if successful
+                            if (rowsAffected > 0)
+                            {
+                                transaction.Commit();
+                                return true;
+                            }
+                            else
+                            {
+                                // Rollback the transaction if patient deletion fails
+                                transaction.Rollback();
+                                return false;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("An error occurred while deleting the patient: " + ex.Message);
+                        transaction.Rollback();
+                        return false;
+                    }
                 }
             }
         }
+
 
         public DataTable SearchPatients(string searchText)
         {
@@ -68,7 +131,6 @@ namespace AD_indiviual_project.Controller
                     connection.Open();
 
                     string query = "SELECT * FROM patients WHERE first_name LIKE @SearchText OR gender LIKE @SearchText";
-                    // You can modify the query to include additional search fields
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {

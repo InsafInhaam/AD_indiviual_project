@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace AD_indiviual_project.Controller
 {
-    internal class ResourceController
+    public class UserController
     {
+
     }
 }

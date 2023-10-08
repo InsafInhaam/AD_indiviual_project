@@ -63,7 +63,6 @@ namespace AD_indiviual_project.Controller
             }
             catch (Exception ex)
             {
-                // Handle the exception (e.g., log or display an error message).
                 Console.WriteLine("An error occurred while fetching patients: " + ex.Message);
                 return null;
             }
@@ -134,7 +133,6 @@ namespace AD_indiviual_project.Controller
                     connection.Open();
 
                     string query = "SELECT * FROM Appointments WHERE AppointmentName LIKE @SearchText OR PatientId LIKE @SearchText";
-                    // You can modify the query to include additional search fields
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {

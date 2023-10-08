@@ -20,9 +20,7 @@ namespace AD_indiviual_project.Models
 
         private void AddAppointment_Load(object sender, EventArgs e)
         {
-            // Populate the specialization ComboBox with your specialization options.
             specializationComboBox.Items.AddRange(new string[] { "Cardiology", "Dermatology", "Endocrinology", "Gastroenterology", "Hematology", "Pediatrics", "General" });
-            // Set the default selection to the first item.
             specializationComboBox.SelectedIndex = 0;
             PopulateDoctorComboBox(specializationComboBox.SelectedItem.ToString());
         }
@@ -33,8 +31,8 @@ namespace AD_indiviual_project.Models
             if (doctorsTable != null)
             {
                 doctorComboBox.DataSource = doctorsTable;
-                doctorComboBox.DisplayMember = "FirstName"; // Display the first name in the control
-                doctorComboBox.ValueMember = "DoctorID";   // Save the DoctorID as the selected value
+                doctorComboBox.DisplayMember = "FirstName"; 
+                doctorComboBox.ValueMember = "DoctorID";   
             }
         }
 
@@ -44,8 +42,8 @@ namespace AD_indiviual_project.Models
             if (patientsTable != null)
             {
                 txtPatientId.DataSource = patientsTable;
-                txtPatientId.DisplayMember = "first_name"; // Display the first name in the control
-                txtPatientId.ValueMember = "patientid";   // Save the PatientID as the selected value
+                txtPatientId.DisplayMember = "first_name"; 
+                txtPatientId.ValueMember = "patientid";  
             }
         }
 
@@ -56,18 +54,16 @@ namespace AD_indiviual_project.Models
 
         private bool ValidateInputFields()
         {
-            // Validate input fields for the appointment
             if (txtPatientId.SelectedValue == null ||
                 doctorComboBox.SelectedValue == null ||
                 doctorAppointmentTime.SelectedItem == null ||
-                yourDateTimePicker.Value == null || // Replace with your DateTimePicker control
+                yourDateTimePicker.Value == null || 
                 string.IsNullOrWhiteSpace(txtDescription.Text))
             {
                 MessageBox.Show("Please fill in all required fields for the appointment.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            // You can add more validation logic as needed
 
             return true;
         }

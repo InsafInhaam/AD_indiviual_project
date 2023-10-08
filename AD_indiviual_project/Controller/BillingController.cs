@@ -40,13 +40,12 @@ namespace AD_indiviual_project.Controller
             }
             catch (Exception ex)
             {
-                // Handle the exception (e.g., log or display an error message).
                 Console.WriteLine("An error occurred while fetching patients: " + ex.Message);
                 return null;
             }
         }
 
-        public DataTable GetBillingData(string billingType)
+        public DataTable GetBillingData(string billingType, int selectedPatientID)
         {
             DataTable dataTable = new DataTable();
 
@@ -56,20 +55,18 @@ namespace AD_indiviual_project.Controller
 
                 string query = string.Empty;
 
-                // Determine the SQL query based on the selected billing type.
                 switch (billingType)
                 {
                     case "Procedure":
-                        query = "SELECT ProcedureName FROM ProceduresTable"; // Replace with your actual table and column names.
+                        query = "SELECT ProcedureID, ProceduresType FROM Procedures WHERE PatientID = @PatientID";
                         break;
                     case "Medication":
-                        query = "SELECT MedicationId, MedicationName FROM Medications"; // Replace with your actual table and column names.
+                        query = "SELECT MedicationId, MedicationName FROM Medications WHERE PatientID = @PatientID";
                         break;
-                    case "Consultation":
-                        query = "SELECT ConsultationName FROM Appointments"; // Replace with your actual table and column names.
+                    case "Appointments":
+                        query = "SELECT AppointmentID, Description FROM Appointments WHERE PatientID = @PatientID";
                         break;
                     default:
-                        // Handle invalid billing types.
                         break;
                 }
 
@@ -77,6 +74,8 @@ namespace AD_indiviual_project.Controller
                 {
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
+                        command.Parameters.AddWithValue("@PatientID", selectedPatientID);
+
                         SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                         dataAdapter.Fill(dataTable);
                     }
@@ -84,6 +83,82 @@ namespace AD_indiviual_project.Controller
             }
 
             return dataTable;
+        }
+
+        public DataTable GetBillings()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM Billings";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        dataAdapter.Fill(dataTable);
+
+                        return dataTable;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return null;
+            }
+        }
+
+        public bool DeleteBilling(int billingid)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string deleteQuery = "DELETE FROM Billings WHERE billingid = @BillingId";
+
+                using (SqlCommand command = new SqlCommand(deleteQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@BillingId", billingid);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    return rowsAffected > 0;
+                }
+            }
+        }
+
+        public DataTable SearchBillings(string searchText)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM Billing WHERE PatientID LIKE @SearchText OR ConsultationID LIKE @SearchText OR MedicationID LIKE @SearchText";
+                    // You can modify the query to include additional search fields
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
+
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        dataAdapter.Fill(dataTable);
+
+                        return dataTable;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return null;
+            }
         }
 
         public bool CreateBilling(Billing billing)
@@ -123,6 +198,36 @@ namespace AD_indiviual_project.Controller
                 return false;
             }
         }
+
+        public DataTable GetBillingDetails(int billingId)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM Billings WHERE BillingID = @BillingID";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@BillingID", billingId);
+
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        dataAdapter.Fill(dataTable);
+
+                        return dataTable;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while fetching billing details: " + ex.Message);
+                return null;
+            }
+        }
+
 
     }
 }

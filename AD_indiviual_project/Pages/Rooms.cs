@@ -16,6 +16,23 @@ namespace AD_indiviual_project.Pages
             InitializeComponent();
             roomManager = new RoomController(connectionString);
             LoadRoomRecords();
+            SetupSidebar();
+        }
+
+        private void SetupSidebar()
+        {
+            if (Session.Role == "Admin")  
+            {
+                btnAdd.Visible = true;
+                btnUpdate.Visible = true;
+                btnDelete.Visible = true;
+            }
+            else if (Session.Role == "Staff") 
+            {
+                btnAdd.Visible = false;
+                btnUpdate.Visible = false;
+                btnDelete.Visible = false;
+            }
         }
 
         public void LoadRoomRecords()
@@ -72,23 +89,64 @@ namespace AD_indiviual_project.Pages
             {
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-                // Extract the room ID from the selected row
                 int roomId = Convert.ToInt32(selectedRow.Cells["RoomTheaterAvailabilityID"].Value);
 
-                // Open an update form or dialog to modify room information
-                // You can pass the roomId to the update form so it knows which record to update
                 UpdateRoom updateForm = new UpdateRoom(roomId);
                 DialogResult result = updateForm.ShowDialog();
 
                 if (result == DialogResult.OK)
                 {
-                    // Refresh the room records after the update
                     LoadRoomRecords();
                 }
             }
             else
             {
                 MessageBox.Show("Please select a single room record to update.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            LoadRoomRecords();
+
+        }
+
+        /* ----------------------------------------------------------
+                 patienr_clear NULL
+         ----------------------------------------------------------*/
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                int room_theotor_id = (int)selectedRow.Cells["RoomTheaterAvailabilityID"].Value;
+
+                object currentPatientValue = selectedRow.Cells["current_patient"].Value;
+
+                if (currentPatientValue == null || currentPatientValue == DBNull.Value)
+                {
+                    MessageBox.Show("The current patient is already null.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    bool updateSuccess = roomManager.ClearCurrentPatient(room_theotor_id);
+
+                    if (updateSuccess)
+                    {
+                        LoadRoomRecords();
+
+                        MessageBox.Show("Current patient cleared successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to clear current patient.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a room to clear the current patient.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

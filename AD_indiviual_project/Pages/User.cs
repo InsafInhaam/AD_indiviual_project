@@ -28,7 +28,7 @@ namespace AD_indiviual_project.Pages
             {
                 connection.Open();
 
-                string query = "SELECT * FROM users"; // Change this query as needed
+                string query = "SELECT userid, username, role, staffid FROM users";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -36,7 +36,7 @@ namespace AD_indiviual_project.Pages
                     DataTable dataTable = new DataTable();
                     dataAdapter.Fill(dataTable);
 
-                    dataGridView1.DataSource = dataTable; // Assuming dataGridView1 is the name of your DataGridView control
+                    dataGridView1.DataSource = dataTable; 
                 }
             }
         }
@@ -97,6 +97,11 @@ namespace AD_indiviual_project.Pages
             {
                 MessageBox.Show("Please select a row to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            LoadUserRecords();
         }
     }
 }

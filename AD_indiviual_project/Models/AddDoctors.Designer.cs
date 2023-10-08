@@ -646,7 +646,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "AddDoctors";
             this.Text = "AddDoctors";
-            this.Load += new System.EventHandler(this.AddDoctors_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

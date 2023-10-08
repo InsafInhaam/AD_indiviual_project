@@ -73,7 +73,6 @@ namespace AD_indiviual_project.Controller
                     connection.Open();
 
                     string query = "SELECT * FROM RoomTheaterAvailability WHERE room_theater_number LIKE @SearchText OR type LIKE @SearchText";
-                    // You can modify the query to include additional search fields
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -156,6 +155,36 @@ namespace AD_indiviual_project.Controller
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred while updating the Room/Theater availability: " + ex.Message);
+                return false;
+            }
+        }
+
+        public bool ClearCurrentPatient(int room_theotor_id)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Update the rooms_theotor table to clear current_patient and set status to 'Available'
+                    string updateQuery = @"
+                UPDATE RoomTheaterAvailability
+                SET current_patient = NULL, status = 'Available'
+                WHERE RoomTheaterAvailabilityID = @room_theotor_id";
+
+                    using (SqlCommand command = new SqlCommand(updateQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@room_theotor_id", room_theotor_id);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
                 return false;
             }
         }

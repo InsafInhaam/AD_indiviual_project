@@ -40,9 +40,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Teal;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 725);
+            this.panel1.Location = new System.Drawing.Point(0, 612);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1020, 15);
+            this.panel1.Size = new System.Drawing.Size(987, 15);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -82,7 +82,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1020, 740);
+            this.ClientSize = new System.Drawing.Size(987, 627);
             this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

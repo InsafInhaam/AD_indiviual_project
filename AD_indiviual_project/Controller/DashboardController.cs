@@ -22,17 +22,14 @@ namespace AD_indiviual_project.Controller
         {
             try
             {
-                // Connect to the database.
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
 
-                    // SQL query to count staff.
                     string query = "SELECT COUNT(*) FROM staffs";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        // Execute the query and get the count.
                         int staffCount = (int)command.ExecuteScalar();
                         return staffCount;
                     }
@@ -41,7 +38,7 @@ namespace AD_indiviual_project.Controller
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while fetching staff count: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return -1; // Return -1 to indicate an error.
+                return -1;
             }
         }
 
@@ -69,16 +66,12 @@ namespace AD_indiviual_project.Controller
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while fetching doctors count: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return -1; // Return -1 to indicate an error.
+                return -1; 
             }
 
         }
 
-
-
-
         // Get Patient's Total Save Count Display Method
-
         public int GetPatientsCount()
         {
             try
@@ -99,10 +92,9 @@ namespace AD_indiviual_project.Controller
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while fetching patients count: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return -1; // Return -1 to indicate an error.
+                return -1; 
             }
         }
-
 
         public int GetResourceTotalCount()
         {
@@ -112,7 +104,7 @@ namespace AD_indiviual_project.Controller
                 {
                     connection.Open();
 
-                    string query = "SELECT COUNT(*) FROM Resources";
+                    string query = "SELECT COUNT(*) FROM HealthcareResources";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -124,7 +116,7 @@ namespace AD_indiviual_project.Controller
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while fetching resource count: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return -1; // Return -1 to indicate an error.
+                return -1; 
             }
         }
 
@@ -148,7 +140,7 @@ namespace AD_indiviual_project.Controller
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while fetching resource count: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return -1; // Return -1 to indicate an error.
+                return -1; 
             }
         }
 
@@ -172,7 +164,7 @@ namespace AD_indiviual_project.Controller
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while fetching resource count: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return -1; // Return -1 to indicate an error.
+                return -1;
             }
         }
     }

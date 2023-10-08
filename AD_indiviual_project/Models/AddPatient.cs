@@ -68,7 +68,7 @@ namespace AD_indiviual_project.Models
                     }
                 }
                 catch (Exception ex)
-                {
+                { 
                     MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -80,6 +80,11 @@ namespace AD_indiviual_project.Models
         }
 
         private void AddPatient_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -58,6 +58,7 @@
             this.doctorAppointmentTime.Name = "doctorAppointmentTime";
             this.doctorAppointmentTime.Size = new System.Drawing.Size(350, 36);
             this.doctorAppointmentTime.TabIndex = 225;
+            this.doctorAppointmentTime.SelectedIndexChanged += new System.EventHandler(this.doctorAppointmentTime_SelectedIndexChanged);
             // 
             // specializationComboBox
             // 
@@ -73,6 +74,7 @@
             this.specializationComboBox.Name = "specializationComboBox";
             this.specializationComboBox.Size = new System.Drawing.Size(350, 36);
             this.specializationComboBox.TabIndex = 224;
+            this.specializationComboBox.SelectedIndexChanged += new System.EventHandler(this.specializationComboBox_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -177,6 +179,7 @@
             this.doctorComboBox.Name = "doctorComboBox";
             this.doctorComboBox.Size = new System.Drawing.Size(350, 36);
             this.doctorComboBox.TabIndex = 216;
+            this.doctorComboBox.SelectedIndexChanged += new System.EventHandler(this.doctorComboBox_SelectedIndexChanged);
             // 
             // label15
             // 

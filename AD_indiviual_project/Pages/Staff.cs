@@ -1,5 +1,6 @@
 ﻿using AD_indiviual_project.Controller;
 using AD_indiviual_project.Models;
+using Kimtoo.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,13 +24,29 @@ namespace AD_indiviual_project.Pages
             InitializeComponent();
             staffManager = new StaffController(connectionString);
             LoadStaffRecords();
+            SetupSidebar();
+        }
+        private void SetupSidebar()
+        {
+            if (Session.Role == "Admin")  
+            {
+                btnAdd.Visible = true;
+                btnUpdate.Visible = true;
+                btnDelete.Visible = true;
+            }
+            else if (Session.Role == "Staff") 
+            {
+                btnAdd.Visible = false;
+                btnUpdate.Visible = false;
+                btnDelete.Visible = false;
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             AddStaff addstaff = new AddStaff();
             addstaff.Show();
-        }
+        }  
 
         private void LoadStaffRecords()
         {
@@ -53,17 +70,13 @@ namespace AD_indiviual_project.Pages
             {
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-                // Extract the staff ID from the selected row
                 int staffId = Convert.ToInt32(selectedRow.Cells["staffid"].Value);
 
-                // Open an update form or dialog to modify staff information
-                // You can pass the staffId to the update form so it knows which record to update
                 UpdateStaff updateForm = new UpdateStaff(staffId);
                 DialogResult result = updateForm.ShowDialog();
 
                 if (result == DialogResult.OK)
                 {
-                    // Refresh the staff records after the update
                     LoadStaffRecords();
                 }
             }
@@ -112,6 +125,11 @@ namespace AD_indiviual_project.Pages
             {
                 MessageBox.Show("Please select a row to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            LoadStaffRecords();
         }
     }
 }

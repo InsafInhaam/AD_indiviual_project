@@ -206,7 +206,7 @@ namespace AD_indiviual_project.Controller
                 Console.WriteLine($"Error deleting medication record: {ex.Message}");
                 return false;
             }
-        }
+        }   
 
         public DataTable GetDoctors()
         {

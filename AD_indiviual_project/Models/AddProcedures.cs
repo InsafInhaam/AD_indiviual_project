@@ -52,11 +52,7 @@ namespace AD_indiviual_project.Models
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // Get the selected file path
                 string filePath = openFileDialog.FileName;
-
-                // You can display the file name or other information to the user
-                // For example: lblSelectedFile.Text = Path.GetFileName(filePath);
             }
         }
 

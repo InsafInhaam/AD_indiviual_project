@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Billing));
             this.searchTerm = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.print_invoice = new System.Windows.Forms.Button();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +59,7 @@
             this.searchTerm.SelectedText = "";
             this.searchTerm.Size = new System.Drawing.Size(314, 38);
             this.searchTerm.TabIndex = 23;
+            this.searchTerm.TextChanged += new System.EventHandler(this.searchTerm_TextChanged);
             // 
             // label2
             // 
@@ -106,11 +110,39 @@
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // print_invoice
+            // 
+            this.print_invoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.print_invoice.Location = new System.Drawing.Point(738, 19);
+            this.print_invoice.Name = "print_invoice";
+            this.print_invoice.Size = new System.Drawing.Size(132, 40);
+            this.print_invoice.TabIndex = 25;
+            this.print_invoice.Text = "View Invoice";
+            this.print_invoice.UseVisualStyleBackColor = false;
+            this.print_invoice.Click += new System.EventHandler(this.print_invoice_Click);
+            // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton1.Image")));
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(407, 64);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(47, 53);
+            this.guna2ImageButton1.TabIndex = 24;
+            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            // 
             // Billing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 560);
+            this.Controls.Add(this.print_invoice);
+            this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.searchTerm);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
@@ -134,5 +166,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private System.Windows.Forms.Button print_invoice;
     }
 }
